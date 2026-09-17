@@ -1,0 +1,3947 @@
+{
+  "incentive": "Estrella Galicia",
+  "target": 60,
+  "sourceSheet": "CLIENTES",
+  "updatedAt": "2026-09-17T05:24:00-03:00",
+  "rules": {
+    "buyer": "COMPRAD ESTRELLA GALICIA = 100%; vacío = no comprador"
+  },
+  "clients": [
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ABRAHAM CARLOS ALFREDO",
+      "clientId": "00003199858",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ACOSTA ROSA MABEL",
+      "clientId": "00003133853",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ALBARRACIN BENJAMIN SANTIAGO",
+      "clientId": "00003161317",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ALBARRACIN FACUNDO NICOLAS",
+      "clientId": "00003199966",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ALDERETE ROSARIO ISABEL",
+      "clientId": "00003149882",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ALVAREZ AMALIA AHURORA",
+      "clientId": "00003195754",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ANDRADA ALEXIA STAEFANIA",
+      "clientId": "00003198492",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "BAUZA GAYA BARTOLOME GUSTAVO",
+      "clientId": "00003196443",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "BERNENGO SHEILA ANDREA",
+      "clientId": "00003135487",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "BLASCO ESTEBAN DANIEL",
+      "clientId": "00003137255",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003101212",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "CARRAZANO MARIA ELVIRA",
+      "clientId": "00003194833",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "COMERCIALIZADORA RIVADAVIA SRL",
+      "clientId": "00003199686",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "CORBALAN ROBERTO ANTONIO",
+      "clientId": "00003170431",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "CORONEL MARIA FLORENCIA",
+      "clientId": "00003134285",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "CUEVA LUIS GABRIEL",
+      "clientId": "00003139519",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "DAISY FLOWERS S.A.S",
+      "clientId": "00003137097",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "DIAZ ELENA DEL CARMEN",
+      "clientId": "00003136373",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "DIAZ VELIZ MARIANO",
+      "clientId": "00003161436",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ECHENIQUE ALEJANDRO MIGUEL F",
+      "clientId": "00003137220",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ESTRADA RICARDO LUIS",
+      "clientId": "00003135167",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FARIAS VICTOR SAMUEL",
+      "clientId": "00003101306",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FECHA NICOLAS AGUSTIN",
+      "clientId": "00003139911",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FERNANDEZ MAHMOUD NABIL A.",
+      "clientId": "00003136772",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FERREYRA LEONEL GUSTAVO",
+      "clientId": "00003110273",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FIGUEROA DARDO ANTONIO",
+      "clientId": "00003135452",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FIGUEROA OLGA PATRICIA DE FATI",
+      "clientId": "00003191487",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FLORES MARIA CELESTE",
+      "clientId": "00003135959",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "FUENSALIDA JOSE MARIA",
+      "clientId": "00003195082",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GALLARDO JOSE MARIA",
+      "clientId": "00003139521",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GALLARDO LUIS GONZALO",
+      "clientId": "00003179932",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GARCIA SILVIA DEL VALLE",
+      "clientId": "00003136960",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GARCIA VICENTE",
+      "clientId": "00003151425",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GARRIDO LUIS HUGO",
+      "clientId": "00003174550",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GONZALEZ MIGUEL ANGEL",
+      "clientId": "00003139865",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GUEVARA DIEGO GABRIEL",
+      "clientId": "00003135346",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "GUZMAN GUSTAVO ALBERTO",
+      "clientId": "00003133913",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "HERRERA PEDRO AGUSTIN",
+      "clientId": "00003139962",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "JUAREZ RAUL ARMANDO",
+      "clientId": "00003174712",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "LEAL HUGO DANIEL",
+      "clientId": "00003135365",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "LI CAIHONG",
+      "clientId": "00003195155",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "LIZARRAGA NOEMI OLGA",
+      "clientId": "00003101393",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "LOPEZ MIGUEL ANGEL",
+      "clientId": "00003102790",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "LOZANO SORIA",
+      "clientId": "00003136334",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MAGUNA RODRIGO EMANUEL",
+      "clientId": "00003140582",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MARTOREL GERMAN FRANCISCO",
+      "clientId": "00003138910",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MARTORELL JORGE DAVID",
+      "clientId": "00003133673",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MENDOZA PATRICIA DEL VALLE",
+      "clientId": "00003136954",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MILHEM HNO S.DE HECHO DE ALI",
+      "clientId": "00003195518",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MILHEM HNOS S. DE HECHO",
+      "clientId": "00003139502",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "MULTI EXPRESS S.R.L EN FORMAC.",
+      "clientId": "00003137245",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "NORTE LACTEOS S. A. S.",
+      "clientId": "00003139708",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PADILLA DARIO ANDRES",
+      "clientId": "00003186695",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PALACIOS DANIEL ALBERTO",
+      "clientId": "00003137051",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PALAVECINO MARIA LORENA",
+      "clientId": "00003184477",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PARADI ALEXIS NAHUEL",
+      "clientId": "00003172434",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "POLITO EDUARDO MARTIN",
+      "clientId": "00003194008",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PONCE DAVID OMAR",
+      "clientId": "00003136266",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "PONCE JORGELINA ANTONELLA",
+      "clientId": "00003137290",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "QUIROGA OSVALDO MILTON",
+      "clientId": "00003100959",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "RAMOS IGNACIO MIGUEL",
+      "clientId": "00003137033",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "RAMOS IGNACIO MIGUEL",
+      "clientId": "00003137034",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ROCHA ALVARO GASTON",
+      "clientId": "00003134879",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ROMANO LUCAS EXEQUIEL",
+      "clientId": "00003110150",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "RUIZ MANUEL ORLANDO",
+      "clientId": "00003133735",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SALAZAR MARIELA DEL CARMEN",
+      "clientId": "00003137435",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SANCHEZ DARIO AGUSTIN",
+      "clientId": "00003136096",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SANCHEZ RAMON ANTONIO",
+      "clientId": "00003196419",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SILVA JORGELINA DEL VALLE",
+      "clientId": "00003137038",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SILVA JORGELINA DEL VALLE",
+      "clientId": "00003196014",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SINGH MANDEEP",
+      "clientId": "00003199830",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SLEIMAN NADA",
+      "clientId": "00003185797",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SORIA SARA LIA",
+      "clientId": "00003170043",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SUAREZ MIRTA",
+      "clientId": "00003184492",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SUCESION DE RAMOS ANTONIO A.",
+      "clientId": "00003136365",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "SUPERMERCADO Q MAS S.A.S",
+      "clientId": "00003135263",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "TROSSERO CLAUDIO MAURICIO",
+      "clientId": "00003184863",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "YAPURA FRANCO SEBASTIAN",
+      "clientId": "00003198014",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "40",
+      "routeCode": "003140",
+      "client": "ZAMORANO NOELIA MARCELA",
+      "clientId": "00003134985",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ABAD SILVINA MARIA",
+      "clientId": "00003196218",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ACUÑA WALTER RAUL",
+      "clientId": "00003105375",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ALEM 500 S A",
+      "clientId": "00003139659",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ARGAÑARAZ FRANCO DAVID",
+      "clientId": "00003195677",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "AZA#A S. A. S.",
+      "clientId": "00003139893",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "BARRETO ERNESTO RAUL",
+      "clientId": "00003136073",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "BUSTOS CESAR ANIBAL",
+      "clientId": "00003172442",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CABRERA ESTEBAN LEOPOLDO",
+      "clientId": "00003134837",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003110211",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003136168",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003136270",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003177425",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003177426",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003185880",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARMONA VERONICA ALEJANDRA",
+      "clientId": "00003135879",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CARRIZO CARLOS LUCIANO",
+      "clientId": "00003139635",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CASARES WALTER DOMINGO",
+      "clientId": "00003174919",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CASTILLO PEDRO ESTEBAN",
+      "clientId": "00003135363",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CEBE PORCEL MATIAS Y CEBE PORC",
+      "clientId": "00003193928",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CEBE PORCEL MATIAS Y CEBE PORC",
+      "clientId": "00003195877",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CHAVES ROQUE FRANCISCO",
+      "clientId": "00003110107",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CONTRERAS ANGELICA YOLANDA",
+      "clientId": "00003139450",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "CORVALAN GUSTAVO JAVIER",
+      "clientId": "00003139767",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "DAZKALASKY FEDERICO",
+      "clientId": "00003191929",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "DAZKALASKY FEDERICO",
+      "clientId": "00003196472",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "DIAZ JORGE ANTONIO",
+      "clientId": "00003161161",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "DIAZ MARIO ENRIQUE",
+      "clientId": "00003136171",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "EG PUNTO MARKET S. A. S.",
+      "clientId": "00003134195",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "EL MALIK S. A. S",
+      "clientId": "00003137330",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "FERNANDEZ HECTOR RAMON",
+      "clientId": "00003186806",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "FERNANDEZ JOSE LUIS",
+      "clientId": "00003193727",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "FERNANDEZ KARINA NORA",
+      "clientId": "00003101452",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "FIGUEROA RUBEN ADOLFO",
+      "clientId": "00003177258",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "FRADA SAS",
+      "clientId": "00003135303",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "GCG DISTRIBUCIONES S. R. L.",
+      "clientId": "00003139678",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "GIMENEZ PABLO DANIEL",
+      "clientId": "00003195170",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "GUAJIMA S.R.L",
+      "clientId": "00003195198",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "GUEVARA ANGEL JAVIER",
+      "clientId": "00003139969",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "GULTEMIRIAN FACUNDO",
+      "clientId": "00003101480",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "JUAREZ KARINA ALEJANDRA",
+      "clientId": "00003137964",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "KANTILEVER S. A. S.",
+      "clientId": "00003134486",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "LENCINA DANIELA",
+      "clientId": "00003161666",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "LUQUE ARIEL ALBERTO",
+      "clientId": "00003193990",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "MARINO MARIA DE LOS ANGELES",
+      "clientId": "00003100979",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "MARTINEZ TORRES VICTOR MANUEL",
+      "clientId": "00003101161",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "MOLINA MAYDA DALIANA",
+      "clientId": "00003197590",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "MONTENEGRO HEBE JOSEFINA",
+      "clientId": "00003199835",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "MOYA NICOLAS",
+      "clientId": "00003196078",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "NADAL BRAIAN RAUL",
+      "clientId": "00003137320",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "NAMEN FACUNDO CAMILO",
+      "clientId": "00003161147",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "NAVARRO JULIANA ESTEFANIA",
+      "clientId": "00003136052",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "NEME FEDERICO NARCISO",
+      "clientId": "00003161080",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "NEME ISA",
+      "clientId": "00003191950",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "OLAGARAY ROBERTO GASTON",
+      "clientId": "00003136831",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "OLAS DIEGO ROBERTO",
+      "clientId": "00003194331",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PALOMINO RAFAEL EDUARDO",
+      "clientId": "00003134665",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PANCHUQUE S.R.L",
+      "clientId": "00003196252",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PANIFICACION LAS DELICIAS SRL",
+      "clientId": "00003135102",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PAZ JOSE LUIS",
+      "clientId": "00003138244",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PEREZ LAURENTI LUCIANO ANDRES",
+      "clientId": "00003134510",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PEREZ SILVIA NOEMI",
+      "clientId": "00003161373",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "PIZZERIA YEYO S. A. S.",
+      "clientId": "00003161291",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "RADI SABINA GLADIS",
+      "clientId": "00003144052",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ROBLES FERNANDO EMANUEL",
+      "clientId": "00003135342",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "ROBLES IVAN MATIAS",
+      "clientId": "00003137058",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "RODRIGUEZ JUAN JOSE",
+      "clientId": "00003193983",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SALINAS FERNANDO MIGUEL",
+      "clientId": "00003198736",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SALUSTROS MANUEL",
+      "clientId": "00003155022",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SALUSTROS MANUEL",
+      "clientId": "00003194246",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SFEIR RICARDO ANTONIO",
+      "clientId": "00003196513",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SILVA JORGELINA DEL VALLE",
+      "clientId": "00003135245",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "SOTELO MIGUEL ANGEL",
+      "clientId": "00003101723",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "TARI ANGEL HUMBERTO",
+      "clientId": "00003192202",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "TODITO S. A. S.",
+      "clientId": "00003161159",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "TUCUMAN KIOSCOS S.R.L",
+      "clientId": "00003191621",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "VELIZ VILLAZUR VALENTIN",
+      "clientId": "00003134572",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "41",
+      "routeCode": "003141",
+      "client": "VELIZ VILLAZUR VALENTIN",
+      "clientId": "00003134754",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ABRAHAM LEILA YESICA",
+      "clientId": "00003177553",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ACUÑA MARIA EUGENIA",
+      "clientId": "00003194978",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALBERTUS SILVIA LILIANA",
+      "clientId": "00003170125",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALBORNOZ FRANCO GUSTAVO",
+      "clientId": "00003161058",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALDERETE CRISTIAN LUIS",
+      "clientId": "00003161643",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALDERETE CRISTIAN LUIS",
+      "clientId": "00003198785",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALVAREZ RODRIGO LAUTARO",
+      "clientId": "00003161266",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ALVAREZ VALERIA DE LOS ANGELES",
+      "clientId": "00003161274",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ANGELETTI ANDRES OMAR",
+      "clientId": "00003193187",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "APARICIO EDUARDO",
+      "clientId": "00003193282",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ARQUEZ ABEL ERNESTO",
+      "clientId": "00003136393",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "BRITO BENIGNA SOLEDAD",
+      "clientId": "00003185546",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CABRAL ALBARO PATRICIO",
+      "clientId": "00003137409",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CAJAL EXEQUIEL ADRIAN",
+      "clientId": "00003135246",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CAJCHAYA VALDIVIA JULIO CESAR",
+      "clientId": "00003137157",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CALCAPRINA VITTORIO AMEDEO",
+      "clientId": "00003101821",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CAMPO JULIO CESAR",
+      "clientId": "00003191271",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CARABAJAL HERNAN FRANCO",
+      "clientId": "00003138850",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CARRIZO ROBERTO ANTONIO",
+      "clientId": "00003161364",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CIFRE SILVANA SOLEDAD",
+      "clientId": "00003136949",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "CORONEL MAURO LEONEL",
+      "clientId": "00003134150",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "DEVANI MARCELO ALEJANDRO",
+      "clientId": "00003135955",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "DORADO JOSE ALBERTO",
+      "clientId": "00003196624",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ESCOBAR RAMON JAVIER",
+      "clientId": "00003161438",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "FAR-PEP SOCIEDAD DE HECHO",
+      "clientId": "00003139623",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "FERES CARLOS ALEJANDRO",
+      "clientId": "00003134961",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "FERES CARLOS ALEJANDRO",
+      "clientId": "00003197575",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GARCIA GERARDO NICOLAS",
+      "clientId": "00003134776",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GARCIA NORMA ANGELICA",
+      "clientId": "00003155460",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GOMEZ NIEVA LOURDES KARINA",
+      "clientId": "00003185834",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GONZALEZ ENRIQUE LUIS",
+      "clientId": "00003178835",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GONZALEZ MARIO RUBEN",
+      "clientId": "00003136160",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "GUERRA ESTEBAN RUBEN",
+      "clientId": "00003174459",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "JACOBO JOSE ANDRES",
+      "clientId": "00003194575",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "JIMENEZ LAUTARO",
+      "clientId": "00003100946",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "JUAREZ MIGUEL EUDORO",
+      "clientId": "00003191849",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "JUJUY LACTEOS Y FIAMBRES SAS",
+      "clientId": "00003136792",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "LAJUD TERESA",
+      "clientId": "00003146509",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "LAZARTE FACUNDO NICOLAS",
+      "clientId": "00003137367",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "LEGON PATRICIA ELIANA",
+      "clientId": "00003161319",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "LOPEZ MARGARITA DEL VALLE",
+      "clientId": "00003137810",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "LUCE PAN S.R.L",
+      "clientId": "00003198663",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MARTIN ARNALDO ANDRES",
+      "clientId": "00003196177",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MARTIN CASTRO IGNACIO",
+      "clientId": "00003135377",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MARTIN MARIA CELESTE",
+      "clientId": "00003135774",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MARTIN MARIA CRISTINA",
+      "clientId": "00003135958",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MARTIN SERGIO ALBERTO",
+      "clientId": "00003137772",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MATARRESE DINO PAOLO",
+      "clientId": "00003198941",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MENA MIGUEL ANGEL",
+      "clientId": "00003117205",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MERCADOPLAY SHOP S. A. S.",
+      "clientId": "00003139506",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MONZON VILLALVA AMELIA",
+      "clientId": "00003137318",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MULTIEXPRESS S.R.L.",
+      "clientId": "00003137379",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "MUNDO DE BEBIDAS S. R. L.",
+      "clientId": "00003136797",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "NAGLE CYNTHIA CAROLINA",
+      "clientId": "00003195596",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "NAVARRO CLAUDIA VIVIANA",
+      "clientId": "00003185683",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "NIEVA FERNANDO LUIS",
+      "clientId": "00003161176",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "NIEVAS MERCEDES ADRIANA",
+      "clientId": "00003135957",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "NS FIAMBRERIA S. A. S.",
+      "clientId": "00003133873",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "OLMEDO WALTER MAXIMILIANO",
+      "clientId": "00003101626",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ONTIVEROS CLAUDIA ROXANA",
+      "clientId": "00003177002",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ORTIZ CARLOS ADRIAN",
+      "clientId": "00003195830",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "PEDRAZA SERGIO ADRIAN",
+      "clientId": "00003171270",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "PERALTA MARIANA DEL VALLE",
+      "clientId": "00003135816",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "PEREYRA CESAR LUIS",
+      "clientId": "00003195093",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "PEREZ JOSE MANUEL",
+      "clientId": "00003136038",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "QUISDE IDALDA",
+      "clientId": "00003199293",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "RED DE COMPRAS S.A.S.",
+      "clientId": "00003110074",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "REGUERA JORGE EXEQUIEL",
+      "clientId": "00003161525",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "RELLIP MANUEL ROQUE",
+      "clientId": "00003115991",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SALE RUTH NOEMI",
+      "clientId": "00003134065",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SALE SUSANA ANDREA",
+      "clientId": "00003156851",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SALGUERO MARTIN ADAN",
+      "clientId": "00003135190",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SALINAS MARIA FATIMA",
+      "clientId": "00003172132",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SANCHEZ BERTA ANGELICA",
+      "clientId": "00003175157",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SORIA RAMON GREGORIO",
+      "clientId": "00003136145",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SUPER ALEM S. A. S.",
+      "clientId": "00003161709",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "SURTIDO S.R.L",
+      "clientId": "00003191777",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "TEJEDA PABLO AGUSTIN",
+      "clientId": "00003139425",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "TERRERA MARIA PIA",
+      "clientId": "00003177337",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "TOLEDO CRISTIAN ESTEBAN",
+      "clientId": "00003161187",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "TOLEDO CURIA MARIA RENEE",
+      "clientId": "00003195005",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "VALIENTE ARMANDO GONZALO",
+      "clientId": "00003171130",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "VELIZ PEDRO MIGUEL",
+      "clientId": "00003136703",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "VELIZ SILVIO RAUL",
+      "clientId": "00003196240",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "VERGARA CRISTHIAN ANGEL MARTIN",
+      "clientId": "00003134962",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "YOU SHOP S. A. S.",
+      "clientId": "00003139682",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ZABALZA JUAN CARLOS",
+      "clientId": "00003136189",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ZHOU MEIZHU",
+      "clientId": "00003177033",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "42",
+      "routeCode": "003142",
+      "client": "ZURITA BLANCA MERCEDES",
+      "clientId": "00003135963",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ACEVEDO LUZ MARINA",
+      "clientId": "00003136966",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ALE GREGORIO MOISES",
+      "clientId": "00003136325",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ALEM 500 S A",
+      "clientId": "00003133710",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ALMEIDA YESSICA ROMINA",
+      "clientId": "00003135516",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ANFUSO SONIA LIRIAN",
+      "clientId": "00003140021",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ARGAÑARAZ MANUEL EDUARDO",
+      "clientId": "00003101445",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ARRIAZU MARIA MAGDALENA",
+      "clientId": "00003106978",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "AUTOSERVICIO SAN RAMON S.R.L",
+      "clientId": "00003194733",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "AUTOSERVICIO SAN RAMON SRL",
+      "clientId": "00003161445",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "AUTOSERVICIO SAN RAMON SRL",
+      "clientId": "00003161446",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "AUTOSERVICIO SAN RAMON SRL",
+      "clientId": "00003161447",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "BOULLHESEN JOSE RICARDO",
+      "clientId": "00003140038",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "BRANDAN PABLO DANIEL",
+      "clientId": "00003194633",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "BURGOS GLORIA EL VALLE",
+      "clientId": "00003136056",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CABRAL ALBARO PATRICIO",
+      "clientId": "00003137159",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CAMPO ALVARO GONZALO",
+      "clientId": "00003136151",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO",
+      "clientId": "00003187901",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMOM",
+      "clientId": "00003199635",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003136011",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003136062",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003177424",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003177454",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003187033",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CARRAZANA LUIS CRISTIAN",
+      "clientId": "00003186682",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CASILLAS DIEGO SEBASTIAN",
+      "clientId": "00003151476",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CASTRO ALBORNOZ MICAELA DEL V.",
+      "clientId": "00003137354",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CASTRO PATRICIA DE LAS MERCEDE",
+      "clientId": "00003194292",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CHUCHUY MORENO ERNESTO ALEJAND",
+      "clientId": "00003195705",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "COOP DE TRABAJO PROSPERIDAD",
+      "clientId": "00003134372",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "COSTILLA LISANDRO",
+      "clientId": "00003134398",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "CYCOMAT SRL",
+      "clientId": "00003176945",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "DIAZ PEDRO OSCAR",
+      "clientId": "00003142720",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "DI MANNO ANGEL LORENZO",
+      "clientId": "00003115685",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "EL MALIK S. A. S.",
+      "clientId": "00003139681",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "FAGUMA S.R.L",
+      "clientId": "00003195888",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "FERNANDEZ RODRIGO DANIEL",
+      "clientId": "00003133949",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "GAMARRO DAVID IGNACIO",
+      "clientId": "00003138918",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "GARCIA RUBEN ANTONIO",
+      "clientId": "00003187880",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "GOMEZ MORENO DANIELA ANGELICA",
+      "clientId": "00003101555",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "GONZALEZ ANA LEONOR DEL VALLE",
+      "clientId": "00003179027",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "HERNANDEZ JUAN PABLO",
+      "clientId": "00003153264",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "IL MERCATO S. A. S.",
+      "clientId": "00003139947",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "IRIONDO SEBASTIAN",
+      "clientId": "00003161788",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "LAGANARA LAURA LUCIA",
+      "clientId": "00003101617",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "LANDIVAR MANUEL ALEJANDRO",
+      "clientId": "00003178446",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "LAZZARANO CLAUDIA NOEMI",
+      "clientId": "00003196265",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "LOPEZ PONCE LUCIANA NOELIA",
+      "clientId": "00003133979",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MACHADO JUAN JOSE",
+      "clientId": "00003140391",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MAHMOUD JUAN CARLOS",
+      "clientId": "00003135232",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MANGUSSI AGOSTINA",
+      "clientId": "00003161030",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MANSILLA MILAGROS VALENTINA",
+      "clientId": "00003137056",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MARTINEZ ELIAS RAFAEL",
+      "clientId": "00003177165",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MATAS THELMA VANESSA",
+      "clientId": "00003134519",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MATAS THELMA VANESSA",
+      "clientId": "00003134520",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MATAS THELMA VANESSA",
+      "clientId": "00003195257",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MEDINA MAURICIO GERMAN",
+      "clientId": "00003185830",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MONETTI RODOLFO SERGIO",
+      "clientId": "00003185889",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MONTERO LUCAS EUGENIO",
+      "clientId": "00003139055",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MONTEROS MAURICIO JOAQUIN",
+      "clientId": "00003135826",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MORIN TRUJILLO MATIAS",
+      "clientId": "00003134312",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MORIN TRUJILLO MATIAS",
+      "clientId": "00003193565",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "MOYANO GABRIEL ALEJANDRO",
+      "clientId": "00003195553",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "NIETO LUCIANA",
+      "clientId": "00003161084",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "NIEVA MAURO RICARDO",
+      "clientId": "00003134556",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "NUEVO POLO NORTE S.R.L",
+      "clientId": "00003193400",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "OCARANZA SEGUNDO RICARDO",
+      "clientId": "00003139069",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "PACAM DISTRILOG ARGENTINA SRL",
+      "clientId": "00003194531",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "PEREZ EDUARDO MIGUEL",
+      "clientId": "00003161465",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "POVEDA MARIA LUCIANA",
+      "clientId": "00003185313",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "RAMIREZ ANTONELLA",
+      "clientId": "00003135621",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ROMERO JOSE OSCAR",
+      "clientId": "00003185857",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "ROMERO THANIA JENNIFER",
+      "clientId": "00003135944",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SABRA RICARDO JOSE",
+      "clientId": "00003173971",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SANCHEZ GONZALO ALEJANDRO",
+      "clientId": "00003172236",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SHI JIANFENG",
+      "clientId": "00003136920",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SINCHICAY ROSARIO MARIO",
+      "clientId": "00003136344",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SOTELO CLAUIDO ALEXIS",
+      "clientId": "00003134554",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "SUCESION DE QUIROGA OSVALDO",
+      "clientId": "00003134707",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "TUCUMAN KIOSCO S.R.L",
+      "clientId": "00003196228",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "VALOY ANDRES",
+      "clientId": "00003199879",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "VEGA GUSTAVO",
+      "clientId": "00003135938",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "VERA CARLOS EDUARDO",
+      "clientId": "00003198447",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "VILLAFA#E ELIZABETH GRACIELA",
+      "clientId": "00003139753",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "43",
+      "routeCode": "003143",
+      "client": "WU LIQING",
+      "clientId": "00003133715",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "AGUDO PEDRO DANTE",
+      "clientId": "00003194831",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "AHUMADA LUIS SANTIAGO",
+      "clientId": "00003134394",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ALVAREZ ADRIAN GUILLERMO",
+      "clientId": "00003198762",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ALVAREZ NATALIA DE LOURDES",
+      "clientId": "00003194056",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ANDRADA ROSA NOEMI DEL VALLE",
+      "clientId": "00003153768",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ANGALADA HECTOR ANTONIO",
+      "clientId": "00003191290",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ANGEL EMILIANO GABRIEL",
+      "clientId": "00003173817",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "AREVALO MARIA LAURA",
+      "clientId": "00003175976",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ARGUELLO SILVANA VERONICA",
+      "clientId": "00003137259",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ARTAZA VICTOR HUGO",
+      "clientId": "00003174408",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "AYALA MARIA NOEL",
+      "clientId": "00003101417",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "BARRIENTOS VALERIA ESTHER",
+      "clientId": "00003137151",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "BARRIOS CRISTIAN RAUL",
+      "clientId": "00003158487",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "BARROS JULIO ALBERTO",
+      "clientId": "00003192465",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "BENAVIDES NELSON ANDRES",
+      "clientId": "00003185216",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "BRODERSEN NICOLAS",
+      "clientId": "00003101482",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CABRERA DARIO PASCUAL",
+      "clientId": "00003137315",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CANAL MONICA ROXANA",
+      "clientId": "00003174500",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CARMENA MARCELO RAMON",
+      "clientId": "00003193244",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CARRIZO PAOLA SOLEDAD",
+      "clientId": "00003136158",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CASTILLO DAMARIS REBECA",
+      "clientId": "00003199443",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CHICO DANTE ANTONIO",
+      "clientId": "00003195148",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "CORTI GOMEZ NADIA SOLEDAD",
+      "clientId": "00003193570",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "DIAZ EDGARDO SIXTO",
+      "clientId": "00003161463",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ESPINOSA GRACIELA ISABEL",
+      "clientId": "00003110180",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "FALCO ABRAMO ARIEL OSCAR",
+      "clientId": "00003194765",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "FERNANDEZ BRAIAN NAHUEL",
+      "clientId": "00003136029",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "FIGUEROA ROSARIO",
+      "clientId": "00003178256",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "FONTEÑEZ ALFREDO GABRIEL",
+      "clientId": "00003174139",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "FUENTES NATALIA YACQUELINE",
+      "clientId": "00003139225",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GALVAN PAULA ELISA",
+      "clientId": "00003134468",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GARCIA MAYRA JESUS",
+      "clientId": "00003197599",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GARCIA RICARDO HECTOR",
+      "clientId": "00003195008",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GINARD CLAUDIA INES",
+      "clientId": "00003134214",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GIULIANTE DANIEL MARCELO",
+      "clientId": "00003161742",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GONZALEZ ANDREA VIVIANA",
+      "clientId": "00003197374",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GONZALEZ MARIA",
+      "clientId": "00003135256",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "GUARDIA BEATRIZ DEL VALLE",
+      "clientId": "00003136159",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "HAIDAR RICARDO ANTONIO",
+      "clientId": "00003177365",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "HERRERA SILVANA NOELIA",
+      "clientId": "00003136455",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "HUAFU MARKET S. A. S",
+      "clientId": "00003135912",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "JARAMILLO GUILLERMO",
+      "clientId": "00003141157",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "JARAMILLO JUAN MANUEL",
+      "clientId": "00003161061",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "JOSE LUCIA ERNESTINA",
+      "clientId": "00003107659",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "JUAREZ ESTEBAN REINALDO",
+      "clientId": "00003191367",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "JUAREZ MOLINA JUAN",
+      "clientId": "00003136874",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "LEDESMA ELSA Y DIOSQUE FABIAN",
+      "clientId": "00003195785",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "LOBO HECTOR JESUS",
+      "clientId": "00003135063",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "LONGO MARIA ANGELICA DEL VALLE",
+      "clientId": "00003148364",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "LUNA MARIA SILVIA",
+      "clientId": "00003194949",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "LURGO PABLO MARCELO",
+      "clientId": "00003154446",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MAIDANA PABLO ADRIAN",
+      "clientId": "00003135242",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MAMANI NORMA BEATRIZ",
+      "clientId": "00003153810",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MARTIN CASTRO IGNACIO",
+      "clientId": "00003135012",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MARTIN JOSE MANUEL",
+      "clientId": "00003137264",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MEDINA DEBORAH JANETTE",
+      "clientId": "00003139438",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MEDINA JESSICA ALEJANDRA",
+      "clientId": "00003138317",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MORALES BLANCA GRACIELA",
+      "clientId": "00003139416",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MORENO DIAZ VANESA DEL VALLE",
+      "clientId": "00003101312",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "MORENO VERONICA INES",
+      "clientId": "00003193893",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "NAVARRO CLAUDIA NATALIA",
+      "clientId": "00003136356",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "NAVARRO MARIA EUGENIA",
+      "clientId": "00003101063",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "OCARANZA LOPEZ MIGUEL ANGEL",
+      "clientId": "00003133713",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ORTIZ RICARDO SEBASTIAN",
+      "clientId": "00003137612",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PEREZ BENINI NICOLAS",
+      "clientId": "00003193920",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PEREZ CLAUDIA",
+      "clientId": "00003151869",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PERUCHETTI GINNA MAGALI",
+      "clientId": "00003195252",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PINTO BLANCA AIDA",
+      "clientId": "00003138858",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PINTO CLAUDIA BEATRIZ",
+      "clientId": "00003137023",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PRADO NATALIA MABEL",
+      "clientId": "00003136762",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "PUIG JUAN RUBEN",
+      "clientId": "00003198791",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "REINOSO ESTELA",
+      "clientId": "00003187192",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "RICO PABLO ALEJANDRO",
+      "clientId": "00003161464",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "ROBLES JUAN MANUEL",
+      "clientId": "00003136849",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "RODRIGUEZ LUCIANO EDUARDO",
+      "clientId": "00003133948",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SACCOMANI GUILLERMO RODOLFO",
+      "clientId": "00003139648",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SANTA CRUZ VIRGINIA NATALIA",
+      "clientId": "00003158350",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SANTUCCI PABLO MARTIN",
+      "clientId": "00003135448",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SERRANO DANIEL GUSTAVO",
+      "clientId": "00003135927",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SFEIR GUSTAVO GERARDO",
+      "clientId": "00003145469",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SUAREZ DAMIAN ALBERTO",
+      "clientId": "00003197583",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "SUELZA JUANA MATILDE",
+      "clientId": "00003138432",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "TALPALAR GUILLERMO",
+      "clientId": "00003196525",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "TODO PAN S.R.L",
+      "clientId": "00003199087",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "TORRES AGUSTIN LAUTARO",
+      "clientId": "00003133982",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "VELLICCE MARIA AGOSTINA",
+      "clientId": "00003161127",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "44",
+      "routeCode": "003144",
+      "client": "VILLAFAÑE MAURO ANTONIO",
+      "clientId": "00003194551",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "4K S.A.",
+      "clientId": "00003135732",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ACEVEDO IVAN ROLANDO",
+      "clientId": "00003135977",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ACUÑA PINTO MARCELO FABIAN",
+      "clientId": "00003170688",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "AGUICOR S.A.S",
+      "clientId": "00003198676",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "AGUIRRE GRACIELA DEL VALLE",
+      "clientId": "00003145569",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALDERETE ALBA ANGELINA",
+      "clientId": "00003135376",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALDERETE FABIO MARTIN",
+      "clientId": "00003194378",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALDERETE NUÑEZ HUMBERTO MARTIN",
+      "clientId": "00003195816",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALDERETE RODRIGO ARIEL",
+      "clientId": "00003134840",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALEM 500 S A",
+      "clientId": "00003133711",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ALMAZAN SILVIA PATRICIA",
+      "clientId": "00003161646",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ANDRICH ALICIA BEATRIZ",
+      "clientId": "00003108908",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ARGA#ARAZ JOSE MARIA",
+      "clientId": "00003161275",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ARGA#ARAZ JUAN PABLO",
+      "clientId": "00003137156",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ARGAÑARAZ MARCELO DANTE",
+      "clientId": "00003197595",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ARTIEDA EULALIA GLORIA AMELIA",
+      "clientId": "00003135225",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "AUTOSERVICIO TUNY S.R.L",
+      "clientId": "00003198499",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "BOTTINI PEDRO",
+      "clientId": "00003136765",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "BUDEGUER MARIA FLORENCIA",
+      "clientId": "00003136702",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CABRERA FERNANDO",
+      "clientId": "00003139442",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CACERES SANDRA BEATRIZ",
+      "clientId": "00003185808",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CAPRARO VELERIA LETICIA",
+      "clientId": "00003192289",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CARRASCOZA SILVINA VANESA",
+      "clientId": "00003195857",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CHEN ZHANGCONG",
+      "clientId": "00003177079",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "CORRALES DELGADO LUIS ALBERTO",
+      "clientId": "00003134815",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "DISTRIBUIDORA ANDREA S.R.L.",
+      "clientId": "00003101776",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ELIAS MARTA EUGENIA",
+      "clientId": "00003185721",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ESTRADA JOSE DARIO",
+      "clientId": "00003191066",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "FERNANDEZ MARIA LORENA",
+      "clientId": "00003142835",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "FERRER ROBERTO IGNACIO",
+      "clientId": "00003187093",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "FLORES CASTELLON MARIA LOURDES",
+      "clientId": "00003198398",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "FOTE JESSICA VANESA",
+      "clientId": "00003139301",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "FUENSALIDA RAMOS CAROLINA",
+      "clientId": "00003139432",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GALI GRACIELA",
+      "clientId": "00003118791",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GONZALEZ JOSE ARMANDO",
+      "clientId": "00003191523",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GONZALEZ MARIA LUISA",
+      "clientId": "00003135384",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GRAU MARTIN",
+      "clientId": "00003135460",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GUO HUANG",
+      "clientId": "00003101426",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "GUTIERREZ CARLOS EDUARDO",
+      "clientId": "00003135478",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "INGRAO ALBERTO SEBASTIAN",
+      "clientId": "00003110093",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "IRIONDO SEBASTIAN",
+      "clientId": "00003161179",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "JIMENEZ DANIEL MARCELO",
+      "clientId": "00003110055",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "JULIA MARKET S. A. S.",
+      "clientId": "00003137712",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "JULIO JOSE PALOMARES SAS",
+      "clientId": "00003135433",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "LAS CINCO ESQUINAS SAS",
+      "clientId": "00003135071",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "LA VERDU S. A. S.",
+      "clientId": "00003139428",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "LIQUOR STORE S. A. S.",
+      "clientId": "00003161072",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "LOS ROMAYKA S. A. S.",
+      "clientId": "00003161675",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "MARTINEZ DIEGO GUSTAVO",
+      "clientId": "00003135607",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "MARTIN, VICTORIA",
+      "clientId": "00003135406",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "NIETO VIVIANA TRINIDAD",
+      "clientId": "00003170565",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "OLEA JUSTINIANO LIBORIO",
+      "clientId": "00003196364",
+      "channel": "TRADICIONALES",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "OLVEIRA JUAN JOSE",
+      "clientId": "00003135719",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PACHADO MAURO RAMON",
+      "clientId": "00003145839",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PAEZ GRACIELA MARGARITA",
+      "clientId": "00003139873",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PANIFICACION ALBERTUS S.A.S.",
+      "clientId": "00003100944",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PAVON AUGUSTO NAHUEL",
+      "clientId": "00003134667",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PLAZA VIEJA SRL",
+      "clientId": "00003170993",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PONCE DE VALLEJO DORA MERCEDES",
+      "clientId": "00003117736",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "PORTILLO CARLOS ARIEL",
+      "clientId": "00003175162",
+      "channel": "AUTOSERVICIOS",
+      "buyer": true
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "QUEA MOLLINEDO ANGEL",
+      "clientId": "00003178323",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "RODRIGUEZ FERNANDO FABIAN",
+      "clientId": "00003137580",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "RODRIGUEZ LIDIA ELIZABETH",
+      "clientId": "00003194521",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ROJAS LORENA ELIZABETH",
+      "clientId": "00003133707",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ROJAS LORENA ELIZABETH",
+      "clientId": "00003137500",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ROLDAN LILIANA DEL VALLE",
+      "clientId": "00003154441",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "RONCEDO ALVARO JESUS",
+      "clientId": "00003137513",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "RUIZ HUGO ALBERTO",
+      "clientId": "00003108333",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "SANCHEZ FLORENCIA CECILIA",
+      "clientId": "00003136940",
+      "channel": "AUTOSERVICIOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "SILVA ANTONIO ALVANO",
+      "clientId": "00003140123",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "SINTORA MARIA LUISA",
+      "clientId": "00003148580",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "SUAREZ, DELIA ANGELICA",
+      "clientId": "00003135771",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "TEJERINA ERIKA FLORENCIA",
+      "clientId": "00003196098",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "TUCUMAN KIOSCO S.R.L",
+      "clientId": "00003191599",
+      "channel": "KIOSCOS Y MAXIKIOSCOS",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ZELAYA POLITO JESUS ARMANDO",
+      "clientId": "00003137560",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    },
+    {
+      "route": "45",
+      "routeCode": "003145",
+      "client": "ZERDA MARIA DE LOS ANGELES",
+      "clientId": "00003194846",
+      "channel": "TRADICIONALES",
+      "buyer": false
+    }
+  ]
+}

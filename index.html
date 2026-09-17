@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Incentivos de Venta</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">TUCUMÁN · RUTAS 40–45</div>
+      <h1>Incentivos de Venta</h1>
+      <p class="subtitle">Seguimiento de cobertura por ruta y clientes pendientes</p>
+    </div>
+    <div class="status-pill" id="lastUpdate">Cargando datos…</div>
+  </header>
+
+  <main class="shell">
+    <section class="toolbar card">
+      <label for="routeSelect">Ruta</label>
+      <select id="routeSelect">
+        <option value="40">Ruta 40</option>
+        <option value="41">Ruta 41</option>
+        <option value="42">Ruta 42</option>
+        <option value="43">Ruta 43</option>
+        <option value="44">Ruta 44</option>
+        <option value="45">Ruta 45</option>
+      </select>
+      <div class="toolbar-spacer"></div>
+      <input id="searchInput" type="search" placeholder="Buscar cliente o código" />
+    </section>
+
+    <section class="grid">
+      <article class="card incentive-card" id="estrellaCard">
+        <div class="card-head">
+          <div>
+            <span class="tag">INCENTIVO 1</span>
+            <h2>Estrella Galicia</h2>
+          </div>
+          <span class="goal">Meta 60%</span>
+        </div>
+        <div class="metric-row">
+          <div class="big-metric">
+            <span id="estrellaPct">0%</span>
+            <small>Cobertura</small>
+          </div>
+          <div class="metric-detail">
+            <div><strong id="estrellaBuyers">0</strong><span> compradores</span></div>
+            <div><strong id="estrellaTotal">0</strong><span> clientes</span></div>
+            <div><strong id="estrellaMissing">0</strong><span> faltan para 60%</span></div>
+          </div>
+        </div>
+        <div class="progress"><div id="estrellaBar" class="bar"></div></div>
+        <button class="primary" data-open="estrella">Ver clientes Estrella Galicia</button>
+      </article>
+
+      <article class="card incentive-card" id="ninasCard">
+        <div class="card-head">
+          <div>
+            <span class="tag">INCENTIVO 2</span>
+            <h2>3 Niñas</h2>
+          </div>
+          <span class="goal">Meta 35%</span>
+        </div>
+
+        <div class="submetric">
+          <div class="submetric-title"><span>Cremas</span><strong id="creamPct">0%</strong></div>
+          <div class="progress small"><div id="creamBar" class="bar"></div></div>
+          <div class="subline"><span><b id="creamBuyers">0</b> compradores</span><span>Faltan: <b id="creamMissing">0</b></span></div>
+        </div>
+
+        <div class="submetric">
+          <div class="submetric-title"><span>Snacks</span><strong id="snacksPct">0%</strong></div>
+          <div class="progress small"><div id="snacksBar" class="bar"></div></div>
+          <div class="subline"><span><b id="snacksBuyers">0</b> compradores</span><span>Faltan: <b id="snacksMissing">0</b></span></div>
+        </div>
+
+        <button class="primary" data-open="ninas">Ver clientes 3 Niñas</button>
+      </article>
+    </section>
+
+    <section class="card list-card">
+      <div class="list-head">
+        <div>
+          <span class="tag">DETALLE</span>
+          <h2 id="listTitle">Clientes Estrella Galicia</h2>
+        </div>
+        <div class="segmented" id="statusFilters">
+          <button class="active" data-filter="all">Todos</button>
+          <button data-filter="buyers">Compradores</button>
+          <button data-filter="pending">Pendientes</button>
+        </div>
+      </div>
+
+      <div class="category-filters hidden" id="categoryFilters">
+        <button class="active" data-category="cream">Cremas</button>
+        <button data-category="snacks">Snacks</button>
+      </div>
+
+      <div id="clientCount" class="count"></div>
+      <div id="clientList" class="client-list"></div>
+    </section>
+  </main>
+
+  <template id="clientTemplate">
+    <article class="client">
+      <div class="client-main">
+        <h3 class="client-name"></h3>
+        <div class="client-meta"></div>
+      </div>
+      <div class="client-status"></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
