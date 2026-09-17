@@ -20,7 +20,7 @@ function main(workbook: ExcelScript.Workbook) {
 
   const values = range.getTexts();
   const headerRow = findHeaderRow(values);
-  const headers = values[headerRow].map(normalize);
+  const headers = values[headerRow].map(v => normalize(v));
 
   const iRoute = findHeader(headers, ["CODIGO RUTA PREVENTA", "RUTA PREVENTA"]);
   const iClient = findHeader(headers, ["CLIENTE"]);
@@ -49,7 +49,7 @@ function main(workbook: ExcelScript.Workbook) {
     clients.push({
       route: route.slice(-2),
       routeCode: route,
-      client,
+      client: client,
       clientId: (values[r][iId] || "").trim(),
       channel: (values[r][iChannel] || "").trim(),
       buyer: normalize(raw).includes("100")
@@ -63,12 +63,12 @@ function main(workbook: ExcelScript.Workbook) {
     rules: {
       buyer: "COMPRAD ESTRELLA GALICIA = 100%; vacío = no comprador"
     },
-    clients
+    clients: clients
   };
 }
 
-function findSheet(workbook: ExcelScript.Workbook, names: string[]) {
-  const wanted = names.map(normalize);
+function findSheet(workbook: ExcelScript.Workbook, names: string[]): ExcelScript.Worksheet | undefined {
+  const wanted = names.map(v => normalize(v));
   for (const ws of workbook.getWorksheets()) {
     if (wanted.includes(normalize(ws.getName()))) return ws;
   }
@@ -79,7 +79,7 @@ function findHeaderRow(values: string[][]): number {
   const maxRows = Math.min(values.length, 40);
 
   for (let r = 0; r < maxRows; r++) {
-    const row = values[r].map(normalize);
+    const row = values[r].map(v => normalize(v));
     const hasRoute = hasHeader(row, ["CODIGO RUTA PREVENTA", "RUTA PREVENTA"]);
     const hasClient = hasHeader(row, ["CLIENTE"]);
     const hasEstrella = hasHeader(row, ["COMPRAD ESTRELLA GALICIA"]);
@@ -91,11 +91,11 @@ function findHeaderRow(values: string[][]): number {
 }
 
 function hasHeader(headers: string[], candidates: string[]): boolean {
-  const normalized = candidates.map(normalize);
+  const normalized = candidates.map(v => normalize(v));
   return headers.some(h => normalized.includes(h));
 }
 
-function normalize(v: string) {
+function normalize(v: string): string {
   return String(v ?? "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -104,13 +104,13 @@ function normalize(v: string) {
     .toUpperCase();
 }
 
-function normalizeRoute(v: string) {
+function normalizeRoute(v: string): string {
   const digits = String(v ?? "").replace(/\D/g, "");
   return digits.padStart(6, "0");
 }
 
-function findHeader(headers: string[], candidates: string[]) {
-  const normalized = candidates.map(normalize);
+function findHeader(headers: string[], candidates: string[]): number {
+  const normalized = candidates.map(v => normalize(v));
   const idx = headers.findIndex(h => normalized.includes(h));
   if (idx < 0) throw new Error(`No se encontró encabezado: ${candidates.join(" / ")}`);
   return idx;
