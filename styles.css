@@ -42,6 +42,8 @@ input{width:280px;max-width:100%}
 .bar{height:100%;background:linear-gradient(90deg,var(--brand),#e45862);width:0;transition:width .25s}
 .primary{margin-top:18px;border:0;background:var(--brand);color:#fff;font-weight:900;padding:11px 14px;border-radius:10px;cursor:pointer;width:100%}
 .primary:hover{background:var(--brand-dark)}
+.ninas-product-visual{margin:14px 0 2px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ninas-product-visual img{display:block;width:100%;height:118px;object-fit:contain}
 .submetric{margin-top:20px}
 .submetric-title,.subline{display:flex;justify-content:space-between;gap:10px}
 .submetric-title{font-weight:800;margin-bottom:8px}
@@ -75,4 +77,5 @@ input{width:280px;max-width:100%}
   .segmented button{flex:1}
   .metric-row{gap:18px}
   .big-metric span{font-size:42px}
+  .ninas-product-visual img{height:96px}
 }
