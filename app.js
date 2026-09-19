@@ -7,15 +7,22 @@ let currentCategory = "cream";
 const $ = id => document.getElementById(id);
 const pct = value => `${value.toFixed(1).replace(".",",")}%`;
 const ceilTarget = (total, targetPct) => Math.ceil(total * targetPct / 100);
+const formatDate = value => new Date(value).toLocaleString("es-AR",{dateStyle:"short",timeStyle:"short"});
+
+async function fetchJson(path){
+  const separator = path.includes("?") ? "&" : "?";
+  const response = await fetch(`${path}${separator}v=${Date.now()}`, { cache:"no-store" });
+  if(!response.ok) throw new Error(`No se pudo cargar ${path}: HTTP ${response.status}`);
+  return response.json();
+}
 
 async function loadData(){
   const [e,n] = await Promise.all([
-    fetch("estrella.json").then(r=>r.json()),
-    fetch("tres-ninas.json").then(r=>r.json())
+    fetchJson("estrella.json"),
+    fetchJson("tres-ninas.json")
   ]);
   data.estrella=e; data.ninas=n;
-  const newest = [new Date(e.updatedAt),new Date(n.updatedAt)].sort((a,b)=>b-a)[0];
-  $("lastUpdate").textContent = `Última actualización: ${newest.toLocaleString("es-AR",{dateStyle:"short",timeStyle:"short"})}`;
+  $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
 
@@ -130,5 +137,5 @@ $("searchInput").addEventListener("input",render);
 loadData().catch(err=>{
   console.error(err);
   $("lastUpdate").textContent="Error al cargar los datos";
-  $("clientList").innerHTML='<div class="empty">No se pudieron cargar los archivos JSON. Para probar localmente, levantá un servidor HTTP simple o publicá la carpeta.</div>';
+  $("clientList").innerHTML='<div class="empty">No se pudieron cargar los archivos JSON.</div>';
 });
