@@ -1,0 +1,44 @@
+name: Actualizar Estrella Galicia
+
+on:
+  repository_dispatch:
+    types: [update_estrella]
+
+permissions:
+  contents: write
+
+jobs:
+  update-estrella:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Escribir estrella.json
+        run: |
+          python - <<'PY'
+          import json
+          import os
+
+          with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
+              event = json.load(f)
+
+          data = event["client_payload"]["data"]
+
+          with open("estrella.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+          PY
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add estrella.json
+
+          if git diff --cached --quiet; then
+            echo "No hay cambios para guardar."
+            exit 0
+          fi
+
+          git commit -m "Actualizar Estrella Galicia automáticamente"
+          git push
