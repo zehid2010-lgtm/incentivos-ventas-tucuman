@@ -97,3 +97,10 @@ input{width:280px;max-width:100%}
   .mesa-head{align-items:flex-start;flex-direction:column}
   .mesa-grid{grid-template-columns:1fr}
 }
+
+.mesa-estrella{background:#fff1f2;border-color:#fecdd3}
+.mesa-estrella strong{color:#b42318}
+.mesa-cremas{background:#f0fdf4;border-color:#bbf7d0}
+.mesa-cremas strong{color:#16794a}
+.mesa-snacks{background:#fff7ed;border-color:#fed7aa}
+.mesa-snacks strong{color:#b54708}
