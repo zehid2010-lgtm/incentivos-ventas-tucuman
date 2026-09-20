@@ -22,29 +22,43 @@ async function loadData(){
     fetchJson("tres-ninas.json")
   ]);
   data.estrella=e; data.ninas=n;
-
-  const routeSelect = $("routeSelect");
-  if(!routeSelect.querySelector('option[value="all"]')){
-    const totalOption = document.createElement("option");
-    totalOption.value = "all";
-    totalOption.textContent = "Total vendedores";
-    routeSelect.prepend(totalOption);
-  }
-  routeSelect.value = "all";
-
   $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
 
 function routeClients(source, route){
-  if(route==="all") return source.clients;
   return source.clients.filter(c=>c.route===route);
 }
 
 function render(){
   const route = $("routeSelect").value;
+  renderMesaSummary();
   renderSummary(route);
   renderList(route);
+}
+
+function renderMesaSummary(){
+  const e = data.estrella.clients;
+  const eb = e.filter(c=>c.buyer).length;
+  const ep = e.length ? eb/e.length*100 : 0;
+
+  $("mesaEstrellaPct").textContent = pct(ep);
+  $("mesaEstrellaBuyers").textContent = eb;
+  $("mesaEstrellaTotal").textContent = e.length;
+
+  const n = data.ninas.clients;
+  const cb = n.filter(c=>c.creamBuyer).length;
+  const sb = n.filter(c=>c.snacksBuyer).length;
+  const cp = n.length ? cb/n.length*100 : 0;
+  const sp = n.length ? sb/n.length*100 : 0;
+
+  $("mesaCreamPct").textContent = pct(cp);
+  $("mesaCreamBuyers").textContent = cb;
+  $("mesaCreamTotal").textContent = n.length;
+
+  $("mesaSnacksPct").textContent = pct(sp);
+  $("mesaSnacksBuyers").textContent = sb;
+  $("mesaSnacksTotal").textContent = n.length;
 }
 
 function renderSummary(route){
