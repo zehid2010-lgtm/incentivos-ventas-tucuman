@@ -14,19 +14,62 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Escribir estrella.json
+      - name: Actualizar estrella.json sin perder compradores del mes
         run: |
           python - <<'PY'
           import json
           import os
+          from datetime import datetime
 
           with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
               event = json.load(f)
 
-          data = event["client_payload"]["data"]
+          incoming = event["client_payload"]["data"]
+
+          try:
+              with open("estrella.json", "r", encoding="utf-8") as f:
+                  previous = json.load(f)
+          except Exception:
+              previous = {"clients": []}
+
+          def month_key(value):
+              if not value:
+                  return None
+              try:
+                  return datetime.fromisoformat(value.replace("Z", "+00:00")).strftime("%Y-%m")
+              except Exception:
+                  return None
+
+          same_month = month_key(incoming.get("updatedAt")) == month_key(previous.get("updatedAt"))
+
+          if same_month:
+              old_by_id = {
+                  str(c.get("clientId")): c
+                  for c in previous.get("clients", [])
+                  if c.get("clientId") is not None
+              }
+
+              merged = []
+              seen = set()
+
+              for c in incoming.get("clients", []):
+                  cid = str(c.get("clientId"))
+                  old = old_by_id.get(cid)
+
+                  if old and old.get("buyer") is True:
+                      c["buyer"] = True
+
+                  merged.append(c)
+                  seen.add(cid)
+
+              for cid, old in old_by_id.items():
+                  if cid not in seen:
+                      merged.append(old)
+
+              incoming["clients"] = merged
 
           with open("estrella.json", "w", encoding="utf-8") as f:
-              json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+              json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
           PY
 
       - name: Guardar cambios
