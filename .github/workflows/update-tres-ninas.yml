@@ -49,46 +49,9 @@ jobs:
                   "snacksBuyer": bool(x.get("s")),
               })
 
-          try:
-              with open("tres-ninas.json", "r", encoding="utf-8") as f:
-                  previous = json.load(f)
-          except Exception:
-              previous = {"clients": []}
-
-          def month_key(value):
-              if not value:
-                  return None
-              try:
-                  return datetime.fromisoformat(value.replace("Z", "+00:00")).strftime("%Y-%m")
-              except Exception:
-                  return None
-
-          same_month = month_key(incoming.get("updatedAt")) == month_key(previous.get("updatedAt"))
-
-          if same_month:
-              old_by_id = {
-                  str(c.get("clientId")): c
-                  for c in previous.get("clients", [])
-                  if c.get("clientId") is not None
-              }
-
-              merged = []
-              seen = set()
-
-              for c in incoming.get("clients", []):
-                  cid = str(c.get("clientId"))
-                  old = old_by_id.get(cid)
-
-                  if old:
-                      if old.get("creamBuyer") is True:
-                          c["creamBuyer"] = True
-                      if old.get("snacksBuyer") is True:
-                          c["snacksBuyer"] = True
-
-                  merged.append(c)
-                  seen.add(cid)
-
-              incoming["clients"] = merged
+          # El reporte BI vigente es la fuente de verdad para 3 Niñas.
+          # No acumulamos estados anteriores: cada ejecución reemplaza el avance
+          # con la foto actual del mes que llega en el Excel.
 
           with open("tres-ninas.json", "w", encoding="utf-8") as f:
               json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
