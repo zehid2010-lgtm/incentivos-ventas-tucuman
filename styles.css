@@ -104,3 +104,83 @@ input{width:280px;max-width:100%}
 .mesa-cremas strong{color:#16794a}
 .mesa-snacks{background:#fff7ed;border-color:#fed7aa}
 .mesa-snacks strong{color:#b54708}
+
+/* Filtro de ruta destacado */
+.toolbar{
+  border:2px solid #cbd5e1;
+  background:linear-gradient(90deg,#f8fafc 0%,#ffffff 100%);
+}
+.route-label{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:12px;
+  background:#1d4ed8;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+#routeSelect{
+  min-height:46px;
+  min-width:170px;
+  padding:0 42px 0 16px;
+  border:3px solid #1d4ed8;
+  border-radius:12px;
+  background:#eff6ff;
+  color:#0f172a;
+  font-size:16px;
+  font-weight:900;
+  box-shadow:0 0 0 4px rgba(29,78,216,.08);
+}
+#routeSelect:focus{
+  outline:3px solid rgba(29,78,216,.22);
+  outline-offset:2px;
+}
+
+/* Pastillas del total de mesa con mayor contraste */
+.mesa-metric{
+  position:relative;
+  overflow:hidden;
+  border-width:2px;
+}
+.mesa-metric::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:7px;
+}
+.mesa-estrella{
+  background:#fff1f2;
+  border-color:#fda4af;
+}
+.mesa-estrella::before{background:#be123c}
+.mesa-estrella strong{color:#9f1239}
+
+.mesa-cremas{
+  background:#ecfdf5;
+  border-color:#86efac;
+}
+.mesa-cremas::before{background:#15803d}
+.mesa-cremas strong{color:#166534}
+
+.mesa-snacks{
+  background:#fff7ed;
+  border-color:#fdba74;
+}
+.mesa-snacks::before{background:#c2410c}
+.mesa-snacks strong{color:#9a3412}
+
+.mesa-label{
+  padding-left:4px;
+}
+.mesa-metric strong{
+  padding-left:4px;
+}
+.mesa-metric small{
+  padding-left:4px;
+}
