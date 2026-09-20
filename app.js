@@ -1,4 +1,5 @@
 const ROUTES = ["40","41","42","43","44","45"];
+const DATA_BASE = "https://raw.githubusercontent.com/zehid2010-lgtm/incentivos-ventas-tucuman/main/";
 let data = { estrella:null, ninas:null };
 let currentMode = "estrella";
 let currentStatus = "all";
@@ -18,8 +19,8 @@ async function fetchJson(path){
 
 async function loadData(){
   const [e,n] = await Promise.all([
-    fetchJson("estrella.json"),
-    fetchJson("tres-ninas.json")
+    fetchJson(DATA_BASE + "estrella.json"),
+    fetchJson(DATA_BASE + "tres-ninas.json")
   ]);
   data.estrella=e; data.ninas=n;
   $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
