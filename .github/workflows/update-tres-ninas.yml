@@ -1,0 +1,113 @@
+name: Actualizar 3 Niñas
+
+on:
+  repository_dispatch:
+    types: [update_tres_ninas]
+
+permissions:
+  contents: write
+
+jobs:
+  update-tres-ninas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Actualizar tres-ninas.json sin perder compradores del mes
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime
+
+          with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
+              event = json.load(f)
+
+          payload = event["client_payload"]["data"]
+
+          incoming = {
+              "incentive": "3 Niñas",
+              "targets": {
+                  "cream": int(payload.get("t", {}).get("cream", 35)),
+                  "snacks": int(payload.get("t", {}).get("snacks", 35)),
+              },
+              "updatedAt": payload.get("u"),
+              "rules": {
+                  "buyer": "1 = comprador; 0 o vacío = no comprador"
+              },
+              "clients": []
+          }
+
+          for x in payload.get("c", []):
+              incoming["clients"].append({
+                  "route": str(x.get("r", "")),
+                  "client": str(x.get("n", "")),
+                  "clientId": str(x.get("i", "")),
+                  "channel": str(x.get("h", "")),
+                  "creamBuyer": bool(x.get("c")),
+                  "snacksBuyer": bool(x.get("s")),
+              })
+
+          try:
+              with open("tres-ninas.json", "r", encoding="utf-8") as f:
+                  previous = json.load(f)
+          except Exception:
+              previous = {"clients": []}
+
+          def month_key(value):
+              if not value:
+                  return None
+              try:
+                  return datetime.fromisoformat(value.replace("Z", "+00:00")).strftime("%Y-%m")
+              except Exception:
+                  return None
+
+          same_month = month_key(incoming.get("updatedAt")) == month_key(previous.get("updatedAt"))
+
+          if same_month:
+              old_by_id = {
+                  str(c.get("clientId")): c
+                  for c in previous.get("clients", [])
+                  if c.get("clientId") is not None
+              }
+
+              merged = []
+              seen = set()
+
+              for c in incoming.get("clients", []):
+                  cid = str(c.get("clientId"))
+                  old = old_by_id.get(cid)
+
+                  if old:
+                      if old.get("creamBuyer") is True:
+                          c["creamBuyer"] = True
+                      if old.get("snacksBuyer") is True:
+                          c["snacksBuyer"] = True
+
+                  merged.append(c)
+                  seen.add(cid)
+
+              for cid, old in old_by_id.items():
+                  if cid not in seen:
+                      merged.append(old)
+
+              incoming["clients"] = merged
+
+          with open("tres-ninas.json", "w", encoding="utf-8") as f:
+              json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
+          PY
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tres-ninas.json
+
+          if git diff --cached --quiet; then
+            echo "No hay cambios para guardar."
+            exit 0
+          fi
+
+          git commit -m "Actualizar 3 Niñas automáticamente"
+          git push
