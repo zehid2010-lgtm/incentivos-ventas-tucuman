@@ -22,11 +22,22 @@ async function loadData(){
     fetchJson("tres-ninas.json")
   ]);
   data.estrella=e; data.ninas=n;
+
+  const routeSelect = $("routeSelect");
+  if(!routeSelect.querySelector('option[value="all"]')){
+    const totalOption = document.createElement("option");
+    totalOption.value = "all";
+    totalOption.textContent = "Total vendedores";
+    routeSelect.prepend(totalOption);
+  }
+  routeSelect.value = "all";
+
   $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
 
 function routeClients(source, route){
+  if(route==="all") return source.clients;
   return source.clients.filter(c=>c.route===route);
 }
 
