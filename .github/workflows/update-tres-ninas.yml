@@ -88,10 +88,6 @@ jobs:
                   merged.append(c)
                   seen.add(cid)
 
-              for cid, old in old_by_id.items():
-                  if cid not in seen:
-                      merged.append(old)
-
               incoming["clients"] = merged
 
           with open("tres-ninas.json", "w", encoding="utf-8") as f:
