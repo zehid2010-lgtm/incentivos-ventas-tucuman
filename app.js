@@ -1,5 +1,5 @@
 const ROUTES = ["40","41","42","43","44","45"];
-const DATA_BASE = "https://raw.githubusercontent.com/zehid2010-lgtm/incentivos-ventas-tucuman/main/";
+const DATA_BASE = "./";
 let data = { estrella:null, ninas:null };
 let currentMode = "estrella";
 let currentStatus = "all";
