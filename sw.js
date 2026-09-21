@@ -1,4 +1,4 @@
-const CACHE = "incentivos-shell-v1";
+const CACHE = "incentivos-shell-v3";
 const SHELL = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest", "./assets/icon-192.png", "./assets/icon-512.svg"];
 
 self.addEventListener("install", event => {
