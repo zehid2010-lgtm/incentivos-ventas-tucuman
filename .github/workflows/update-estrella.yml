@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-estrella:
@@ -85,3 +86,9 @@ jobs:
 
           git commit -m "Actualizar Estrella Galicia automáticamente"
           git push
+
+      - name: Forzar despliegue de GitHub Pages
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
