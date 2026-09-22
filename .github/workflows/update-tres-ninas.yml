@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-tres-ninas:
@@ -70,3 +71,9 @@ jobs:
 
           git commit -m "Actualizar 3 Niñas automáticamente"
           git push
+
+      - name: Forzar despliegue de GitHub Pages
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
