@@ -8,6 +8,10 @@ permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: incentives-data-updates
+  cancel-in-progress: false
+
 jobs:
   update-tres-ninas:
     runs-on: ubuntu-latest
@@ -70,7 +74,21 @@ jobs:
           fi
 
           git commit -m "Actualizar 3 Niñas automáticamente"
-          git push
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo "El repositorio cambió durante la actualización. Reintentando..."
+            sleep $((attempt * 2))
+          done
+
+          echo "No se pudo guardar luego de 3 intentos."
+          exit 1
 
       - name: Forzar despliegue de GitHub Pages
         if: success()
