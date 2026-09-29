@@ -1,7 +1,8 @@
 /**
  * Office Script: extraer Estrella Galicia
  * Devuelve solo rutas 40–45.
- * Busca automáticamente la fila real de encabezados en CLIENTE/CLIENTES.
+ * Toma el % oficial de "% COB ESTRELLA GALICIA" cuando está disponible,
+ * para que la app replique exactamente el Avance.
  */
 function main(workbook: ExcelScript.Workbook) {
   const allowedRoutes = new Set(["003140", "003141", "003142", "003143", "003144", "003145"]);
@@ -14,6 +15,7 @@ function main(workbook: ExcelScript.Workbook) {
       incentive: "Estrella Galicia",
       target: 60,
       updatedAt: new Date().toISOString(),
+      routeCoverage: {},
       clients: []
     };
   }
@@ -56,15 +58,74 @@ function main(workbook: ExcelScript.Workbook) {
     });
   }
 
+  const routeCoverage = findOfficialRouteCoverage(workbook, allowedRoutes);
+
   return {
     incentive: "Estrella Galicia",
     target: 60,
     updatedAt: new Date().toISOString(),
     rules: {
-      buyer: "COMPRAD ESTRELLA GALICIA = 100%; vacío = no comprador"
+      buyer: "COMPRAD ESTRELLA GALICIA = 100%; vacío = no comprador",
+      coverage: "% COB ESTRELLA GALICIA del informe Avance tiene prioridad sobre el cálculo por clientes"
     },
+    routeCoverage: routeCoverage,
     clients: clients
   };
+}
+
+function findOfficialRouteCoverage(
+  workbook: ExcelScript.Workbook,
+  allowedRoutes: Set<string>
+): { [route: string]: number } {
+  const result: { [route: string]: number } = {};
+
+  for (const sheet of workbook.getWorksheets()) {
+    const used = sheet.getUsedRange();
+    if (!used) continue;
+
+    const texts = used.getTexts();
+    const maxRows = Math.min(texts.length, 80);
+
+    for (let r = 0; r < maxRows; r++) {
+      const headers = texts[r].map(v => normalize(v));
+      const routeIdx = findHeaderOptional(headers, ["CODIGO RUTA PREVENTA", "RUTA PREVENTA"]);
+      const coverageIdx = findHeaderOptional(headers, [
+        "% COB ESTRELLA GALICIA",
+        "COB ESTRELLA GALICIA",
+        "% COB ESTRELLA"
+      ]);
+
+      if (routeIdx < 0 || coverageIdx < 0) continue;
+
+      for (let row = r + 1; row < texts.length; row++) {
+        const route = normalizeRoute(texts[row][routeIdx]);
+        if (!allowedRoutes.has(route)) continue;
+
+        const coverage = parsePercentage(texts[row][coverageIdx]);
+        if (coverage === null) continue;
+
+        result[route.slice(-2)] = coverage;
+      }
+    }
+  }
+
+  return result;
+}
+
+function parsePercentage(value: string): number | null {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+
+  const normalized = raw
+    .replace(/\s/g, "")
+    .replace("%", "")
+    .replace(",", ".");
+
+  const num = Number(normalized);
+  if (!Number.isFinite(num)) return null;
+
+  if (raw.includes("%")) return num;
+  return num <= 1 ? num * 100 : num;
 }
 
 function findSheet(workbook: ExcelScript.Workbook, names: string[]): ExcelScript.Worksheet | undefined {
@@ -110,8 +171,12 @@ function normalizeRoute(v: string): string {
 }
 
 function findHeader(headers: string[], candidates: string[]): number {
-  const normalized = candidates.map(v => normalize(v));
-  const idx = headers.findIndex(h => normalized.includes(h));
+  const idx = findHeaderOptional(headers, candidates);
   if (idx < 0) throw new Error(`No se encontró encabezado: ${candidates.join(" / ")}`);
   return idx;
+}
+
+function findHeaderOptional(headers: string[], candidates: string[]): number {
+  const normalized = candidates.map(v => normalize(v));
+  return headers.findIndex(h => normalized.includes(h));
 }
