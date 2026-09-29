@@ -31,6 +31,13 @@ function routeClients(source, route){
   return source.clients.filter(c=>c.route===route);
 }
 
+function officialEstrellaPct(route, clients){
+  const value = data.estrella?.routeCoverage?.[route];
+  return Number.isFinite(Number(value))
+    ? Number(value)
+    : (clients.length ? clients.filter(c=>c.buyer).length/clients.length*100 : 0);
+}
+
 function render(){
   const route = $("routeSelect").value;
   renderMesaSummary();
@@ -64,8 +71,10 @@ function renderMesaSummary(){
 
 function renderSummary(route){
   const e = routeClients(data.estrella, route);
-  const eb = e.filter(c=>c.buyer).length;
-  const ep = e.length ? eb/e.length*100 : 0;
+  const ep = officialEstrellaPct(route, e);
+  const eb = Number.isFinite(data.estrella?.routeCoverage?.[route])
+    ? Math.round(e.length * ep / 100)
+    : e.filter(c=>c.buyer).length;
   const et = ceilTarget(e.length, data.estrella.target);
   $("estrellaPct").textContent=pct(ep);
   $("estrellaBuyers").textContent=eb;
