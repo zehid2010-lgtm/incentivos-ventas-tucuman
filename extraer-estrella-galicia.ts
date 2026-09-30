@@ -58,7 +58,7 @@ function main(workbook: ExcelScript.Workbook) {
     });
   }
 
-  const routeCoverage = findOfficialRouteCoverage(workbook, allowedRoutes);
+  const coverageData = findOfficialCoverage(workbook, allowedRoutes);
 
   return {
     incentive: "Estrella Galicia",
@@ -68,16 +68,18 @@ function main(workbook: ExcelScript.Workbook) {
       buyer: "COMPRAD ESTRELLA GALICIA = 100%; vacío = no comprador",
       coverage: "% COB ESTRELLA GALICIA del informe Avance tiene prioridad sobre el cálculo por clientes"
     },
-    routeCoverage: routeCoverage,
+    routeCoverage: coverageData.routeCoverage,
+    overallCoverage: coverageData.overallCoverage,
     clients: clients
   };
 }
 
-function findOfficialRouteCoverage(
+function findOfficialCoverage(
   workbook: ExcelScript.Workbook,
   allowedRoutes: Set<string>
-): { [route: string]: number } {
+): { routeCoverage: { [route: string]: number }, overallCoverage: number | null } {
   const result: { [route: string]: number } = {};
+  let overallCoverage: number | null = null;
 
   for (const sheet of workbook.getWorksheets()) {
     const used = sheet.getUsedRange();
@@ -110,10 +112,25 @@ function findOfficialRouteCoverage(
 
         result[route.slice(-2)] = coverage;
       }
+
+      // Busca también la fila general del jefe/CEDI sin ruta informada.
+      const jefeIdx = headers.findIndex(h => h.includes("JEFE") && h.includes("DESARROLLADOR"));
+      if (jefeIdx >= 0) {
+        for (let row = r + 1; row < texts.length; row++) {
+          const jefe = normalize(texts[row][jefeIdx]);
+          if (!jefe.includes("ZEHID") || !jefe.includes("RICARDO")) continue;
+
+          const routeRaw = String(texts[row][routeIdx] ?? "").trim();
+          if (routeRaw) continue;
+
+          const coverage = parsePercentage(texts[row][coverageIdx]);
+          if (coverage !== null) overallCoverage = coverage;
+        }
+      }
     }
   }
 
-  return result;
+  return { routeCoverage: result, overallCoverage };
 }
 
 function parsePercentage(value: string): number | null {
