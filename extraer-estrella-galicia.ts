@@ -84,16 +84,20 @@ function findOfficialRouteCoverage(
     if (!used) continue;
 
     const texts = used.getTexts();
-    const maxRows = Math.min(texts.length, 80);
+    const maxRows = texts.length;
 
     for (let r = 0; r < maxRows; r++) {
       const headers = texts[r].map(v => normalize(v));
-      const routeIdx = findHeaderOptional(headers, ["CODIGO RUTA PREVENTA", "RUTA PREVENTA"]);
-      const coverageIdx = findHeaderOptional(headers, [
-        "% COB ESTRELLA GALICIA",
-        "COB ESTRELLA GALICIA",
-        "% COB ESTRELLA"
-      ]);
+      const routeIdx = headers.findIndex(h =>
+        (h.includes("RUTA") && h.includes("PREVENTA")) ||
+        h === "CODIGO RUTA" ||
+        h === "RUTA"
+      );
+      const coverageIdx = headers.findIndex(h =>
+        h.includes("COB") &&
+        h.includes("ESTRELLA") &&
+        h.includes("GALICIA")
+      );
 
       if (routeIdx < 0 || coverageIdx < 0) continue;
 
