@@ -48,7 +48,10 @@ function render(){
 function renderMesaSummary(){
   const e = data.estrella.clients;
   const eb = e.filter(c=>c.buyer).length;
-  const ep = e.length ? eb/e.length*100 : 0;
+  const calculatedEp = e.length ? eb/e.length*100 : 0;
+  const ep = Number.isFinite(Number(data.estrella?.overallCoverage))
+    ? Number(data.estrella.overallCoverage)
+    : calculatedEp;
 
   $("mesaEstrellaPct").textContent = pct(ep);
   $("mesaEstrellaBuyers").textContent = eb;
