@@ -3,7 +3,7 @@ const DATA_BASE = "./";
 let data = { estrella:null, ninas:null };
 let currentMode = "estrella";
 let currentStatus = "all";
-let currentCategory = "cream";
+let currentCategory = "protein";
 
 const $ = id => document.getElementById(id);
 const pct = value => `${value.toFixed(1).replace(".",",")}%`;
@@ -22,7 +22,10 @@ async function loadData(){
     fetchJson(DATA_BASE + "estrella.json"),
     fetchJson(DATA_BASE + "tres-ninas.json")
   ]);
-  data.estrella=e; data.ninas=n;
+  data.estrella=e;
+  const octoberReady = n.period === "2026-10" && n.clients.every(c => typeof c.proteinBuyer === "boolean");
+  data.ninas = {...n, ready:octoberReady, targets:{protein:45,snacks:35},
+    clients:n.clients.map(c => ({...c, proteinBuyer:octoberReady ? c.proteinBuyer : false, snacksBuyer:octoberReady ? c.snacksBuyer : false}))};
   $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
@@ -43,6 +46,14 @@ function render(){
   renderMesaSummary();
   renderSummary(route);
   renderList(route);
+  $("ninasDataStatus").textContent = data.ninas.ready ? "Reporte de octubre · Proteína + Snacks" : "Pendiente de reporte de octubre";
+  if (!data.ninas.ready) {
+    ["mesaProteinPct","mesaSnacksPct","proteinPct","snacksPct","mesaProteinBuyers","mesaSnacksBuyers","proteinBuyers","snacksBuyers","proteinMissing","snacksMissing","mesaProteinTotal","mesaSnacksTotal"].forEach(id => $(id).textContent = "—");
+    if (currentMode === "ninas") {
+      $("clientCount").textContent = "Pendiente de reporte de octubre";
+      $("clientList").innerHTML = '<div class="empty">Esperando el reporte de octubre con Proteína y Snacks.</div>';
+    }
+  }
 }
 
 function renderMesaSummary(){
@@ -58,14 +69,14 @@ function renderMesaSummary(){
   $("mesaEstrellaTotal").textContent = e.length;
 
   const n = data.ninas.clients;
-  const cb = n.filter(c=>c.creamBuyer).length;
+  const cb = n.filter(c=>c.proteinBuyer).length;
   const sb = n.filter(c=>c.snacksBuyer).length;
   const cp = n.length ? cb/n.length*100 : 0;
   const sp = n.length ? sb/n.length*100 : 0;
 
-  $("mesaCreamPct").textContent = pct(cp);
-  $("mesaCreamBuyers").textContent = cb;
-  $("mesaCreamTotal").textContent = n.length;
+  $("mesaProteinPct").textContent = pct(cp);
+  $("mesaProteinBuyers").textContent = cb;
+  $("mesaProteinTotal").textContent = n.length;
 
   $("mesaSnacksPct").textContent = pct(sp);
   $("mesaSnacksBuyers").textContent = sb;
@@ -86,16 +97,16 @@ function renderSummary(route){
   $("estrellaBar").style.width=`${Math.min(ep,100)}%`;
 
   const n = routeClients(data.ninas, route);
-  const cb = n.filter(c=>c.creamBuyer).length;
+  const cb = n.filter(c=>c.proteinBuyer).length;
   const sb = n.filter(c=>c.snacksBuyer).length;
   const cp = n.length ? cb/n.length*100 : 0;
   const sp = n.length ? sb/n.length*100 : 0;
-  const ct = ceilTarget(n.length, data.ninas.targets.cream);
+  const ct = ceilTarget(n.length, data.ninas.targets.protein);
   const st = ceilTarget(n.length, data.ninas.targets.snacks);
-  $("creamPct").textContent=pct(cp);
-  $("creamBuyers").textContent=cb;
-  $("creamMissing").textContent=Math.max(0,ct-cb);
-  $("creamBar").style.width=`${Math.min(cp,100)}%`;
+  $("proteinPct").textContent=pct(cp);
+  $("proteinBuyers").textContent=cb;
+  $("proteinMissing").textContent=Math.max(0,ct-cb);
+  $("proteinBar").style.width=`${Math.min(cp,100)}%`;
   $("snacksPct").textContent=pct(sp);
   $("snacksBuyers").textContent=sb;
   $("snacksMissing").textContent=Math.max(0,st-sb);
@@ -114,15 +125,15 @@ function renderList(route){
   $("categoryFilters").classList.toggle("hidden", currentMode!=="ninas");
 
   clients = clients.filter(c=>{
-    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="cream" ? c.creamBuyer : c.snacksBuyer);
+    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="protein" ? c.proteinBuyer : c.snacksBuyer);
     const statusOk = currentStatus==="all" || (currentStatus==="buyers" && buyer) || (currentStatus==="pending" && !buyer);
     const searchOk = !q || c.client.toLowerCase().includes(q) || String(c.clientId).toLowerCase().includes(q);
     return statusOk && searchOk;
   });
 
   clients.sort((a,b)=>{
-    const ab = currentMode==="estrella" ? a.buyer : (currentCategory==="cream" ? a.creamBuyer : a.snacksBuyer);
-    const bb = currentMode==="estrella" ? b.buyer : (currentCategory==="cream" ? b.creamBuyer : b.snacksBuyer);
+    const ab = currentMode==="estrella" ? a.buyer : (currentCategory==="protein" ? a.proteinBuyer : a.snacksBuyer);
+    const bb = currentMode==="estrella" ? b.buyer : (currentCategory==="protein" ? b.proteinBuyer : b.snacksBuyer);
     if(ab!==bb) return ab ? 1 : -1;
     return a.client.localeCompare(b.client,"es");
   });
@@ -139,7 +150,7 @@ function renderList(route){
     const node=tpl.content.cloneNode(true);
     node.querySelector(".client-name").textContent=c.client;
     node.querySelector(".client-meta").textContent=`${c.clientId} · ${c.channel}`;
-    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="cream" ? c.creamBuyer : c.snacksBuyer);
+    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="protein" ? c.proteinBuyer : c.snacksBuyer);
     const badge=node.querySelector(".client-status");
     badge.className=`client-status badge ${buyer?"ok":"pending"}`;
     badge.textContent=buyer?"COMPRADOR":"PENDIENTE";

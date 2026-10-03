@@ -1,6 +1,6 @@
 /**
  * Office Script: extraer 3 Niñas
- * Rutas 40–45. Para CREMA y SNACKS: 1 = comprador; 0/vacío = no comprador.
+ * Rutas 40–45. Para PROTEINA y SNACKS: 1 = comprador; 0/vacío = no comprador.
  * Busca automáticamente la fila real de encabezados en CLIENTE/CLIENTES.
  */
 function main(workbook: ExcelScript.Workbook) {
@@ -11,8 +11,9 @@ function main(workbook: ExcelScript.Workbook) {
   const range = ws.getUsedRange();
   if (!range) {
     return {
-      incentive:"3 Niñas",
-      targets:{cream:35,snacks:35},
+      incentive:"3 Niñas · Proteína + Snacks",
+      period:"2026-10",
+      targets:{protein:45,snacks:35},
       updatedAt:new Date().toISOString(),
       clients:[]
     };
@@ -26,10 +27,10 @@ function main(workbook: ExcelScript.Workbook) {
   const iClient = findHeader(headers, ["CLIENTE"]);
   const iId = findHeader(headers, ["CODIGO CLIENTE","OUTNUM"]);
   const iChannel = findHeader(headers, ["PACK-LOCAL","PACK LOCAL"]);
-  const iCream = findHeader(headers, ["CREMA"]);
+  const iProtein = findHeader(headers, ["PROTEINA","PROTEINAS","LECHE PROTEINA","LECHE PROTEINA 1 LT"]);
   const iSnacks = findHeader(headers, ["SNACKS"]);
 
-  const clients:any[] = [];
+  const clients: {route:string; routeCode:string; client:string; clientId:string; channel:string; proteinBuyer:boolean; snacksBuyer:boolean; proteinRaw:string; snacksRaw:string}[] = [];
   for (let r=headerRow+1; r<values.length; r++) {
     const route = normalizeRoute(values[r][iRoute]);
     if (!allowedRoutes.has(route)) continue;
@@ -37,7 +38,7 @@ function main(workbook: ExcelScript.Workbook) {
     const client = (values[r][iClient] || "").trim();
     if (!client) continue;
 
-    const cream = (values[r][iCream] || "").trim();
+    const protein = (values[r][iProtein] || "").trim();
     const snacks = (values[r][iSnacks] || "").trim();
 
     clients.push({
@@ -46,16 +47,17 @@ function main(workbook: ExcelScript.Workbook) {
       client,
       clientId: (values[r][iId] || "").trim(),
       channel: (values[r][iChannel] || "").trim(),
-      creamBuyer: cream === "1",
+      proteinBuyer: protein === "1",
       snacksBuyer: snacks === "1",
-      creamRaw: cream,
+      proteinRaw: protein,
       snacksRaw: snacks
     });
   }
 
   return {
-    incentive:"3 Niñas",
-    targets:{cream:35,snacks:35},
+    incentive:"3 Niñas · Proteína + Snacks",
+      period:"2026-10",
+    targets:{protein:45,snacks:35},
     updatedAt:new Date().toISOString(),
     rules:{buyer:"1 = comprador; 0 o vacío = no comprador"},
     clients
@@ -76,11 +78,11 @@ function findHeaderRow(values:string[][]): number {
     const row = values[r].map(normalize);
     const hasRoute = hasHeader(row, ["RUTA PREVENTA","CODIGO RUTA PREVENTA"]);
     const hasClient = hasHeader(row, ["CLIENTE"]);
-    const hasCream = hasHeader(row, ["CREMA"]);
+    const hasProtein = hasHeader(row, ["PROTEINA","PROTEINAS","LECHE PROTEINA","LECHE PROTEINA 1 LT"]);
     const hasSnacks = hasHeader(row, ["SNACKS"]);
-    if (hasRoute && hasClient && hasCream && hasSnacks) return r;
+    if (hasRoute && hasClient && hasProtein && hasSnacks) return r;
   }
-  throw new Error("No se encontró la fila de encabezados de 3 Niñas. Debe contener Ruta Preventa, Cliente, CREMA y SNACKS.");
+  throw new Error("No se encontró la fila de encabezados de 3 Niñas. Debe contener Ruta Preventa, Cliente, PROTEINA y SNACKS.");
 }
 
 function hasHeader(headers:string[], candidates:string[]): boolean {
