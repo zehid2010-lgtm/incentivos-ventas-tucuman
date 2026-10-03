@@ -6,7 +6,7 @@ let currentStatus = "all";
 let currentCategory = "protein";
 
 const $ = id => document.getElementById(id);
-const pct = value => `${value.toFixed(1).replace(".",",")}%`;
+const pct = value => `${value.toFixed(2).replace(".",",")}%`;
 const ceilTarget = (total, targetPct) => Math.ceil(total * targetPct / 100);
 const formatDate = value => new Date(value).toLocaleString("es-AR",{dateStyle:"short",timeStyle:"short"});
 
@@ -70,7 +70,7 @@ function renderMesaSummary(){
 
   const n = data.ninas.clients;
   const official = data.ninas.mesaSummary;
-  const total = official ? official.total : n.length;
+  const total = official ? official.total : n.filter(c => c.baseBuyer !== false).length;
   const cb = official ? official.proteinBuyers : n.filter(c=>c.proteinBuyer).length;
   const sb = official ? official.snacksBuyers : n.filter(c=>c.snacksBuyer).length;
   const cp = total ? cb/total*100 : 0;
@@ -102,10 +102,11 @@ function renderSummary(route){
   const n = routeClients(data.ninas, route);
   const cb = n.filter(c=>c.proteinBuyer).length;
   const sb = n.filter(c=>c.snacksBuyer).length;
-  const cp = n.length ? cb/n.length*100 : 0;
-  const sp = n.length ? sb/n.length*100 : 0;
-  const ct = ceilTarget(n.length, data.ninas.targets.protein);
-  const st = ceilTarget(n.length, data.ninas.targets.snacks);
+  const total = n.filter(c => c.baseBuyer !== false).length;
+  const cp = total ? cb/total*100 : 0;
+  const sp = total ? sb/total*100 : 0;
+  const ct = ceilTarget(total, data.ninas.targets.protein);
+  const st = ceilTarget(total, data.ninas.targets.snacks);
   $("proteinPct").textContent=pct(cp);
   $("proteinBuyers").textContent=cb;
   $("proteinMissing").textContent=Math.max(0,ct-cb);
