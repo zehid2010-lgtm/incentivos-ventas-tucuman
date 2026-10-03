@@ -41,6 +41,7 @@ jobs:
                   "client": str(x.get("n", "")),
                   "clientId": str(x.get("i", "")),
                   "channel": str(x.get("h", "")),
+                  "baseBuyer": x.get("k", 1) > 0,
                   "proteinBuyer": x.get("p", 0) > 0,
                   "snacksBuyer": x.get("s", 0) > 0
               } for x in payload["c"]]
