@@ -19,7 +19,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Actualizar tres-ninas.json sin perder compradores del mes
+      - name: Actualizar reporte de octubre: Proteína + Snacks
         run: |
           python - <<'PY'
           import json
@@ -31,28 +31,24 @@ jobs:
 
           payload = event["client_payload"]["data"]
 
-          incoming = {
-              "incentive": "3 Niñas",
-              "targets": {
-                  "cream": int(payload.get("t", {}).get("cream", 35)),
-                  "snacks": int(payload.get("t", {}).get("snacks", 35)),
-              },
-              "updatedAt": payload.get("u"),
-              "rules": {
-                  "buyer": "1 = comprador; 0 o vacío = no comprador"
-              },
-              "clients": []
-          }
+          if payload.get("period") != "2026-10":
+              raise ValueError("Actualizar Office Script: se requiere reporte de octubre con Proteína + Snacks.")
 
-          for x in payload.get("c", []):
-              incoming["clients"].append({
-                  "route": str(x.get("r", "")),
-                  "client": str(x.get("n", "")),
-                  "clientId": str(x.get("i", "")),
-                  "channel": str(x.get("h", "")),
-                  "creamBuyer": bool(x.get("c")),
-                  "snacksBuyer": bool(x.get("s")),
-              })
+          clients = payload.get("clients")
+          if not isinstance(clients, list):
+              raise ValueError("Falta la lista de clientes del reporte de octubre.")
+          for client in clients:
+              if not isinstance(client.get("proteinBuyer"), bool) or not isinstance(client.get("snacksBuyer"), bool):
+                  raise ValueError("El reporte debe incluir proteinBuyer y snacksBuyer.")
+
+          incoming = {
+              "incentive": "3 Niñas · Proteína + Snacks",
+              "period": "2026-10",
+              "targets": {"protein": 45, "snacks": 35},
+              "updatedAt": payload.get("updatedAt"),
+              "rules": {"buyer": "1 = comprador; 0 o vacío = no comprador"},
+              "clients": clients
+          }
 
           # El reporte BI vigente es la fuente de verdad para 3 Niñas.
           # No acumulamos estados anteriores: cada ejecución reemplaza el avance
