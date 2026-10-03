@@ -184,3 +184,7 @@ input{width:280px;max-width:100%}
 .mesa-metric small{
   padding-left:4px;
 }
+
+.estrella-product-visual{display:flex;align-items:center;justify-content:center;gap:16px;background:#fff}
+.estrella-product-visual img{width:calc(50% - 8px);min-width:0;height:170px;object-fit:contain}
+@media(max-width:760px){.estrella-product-visual img{height:140px}}
