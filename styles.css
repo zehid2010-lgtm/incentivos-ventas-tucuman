@@ -188,3 +188,7 @@ input{width:280px;max-width:100%}
 .estrella-product-visual{display:flex;align-items:center;justify-content:center;gap:16px;background:#fff}
 .estrella-product-visual img{width:calc(50% - 8px);min-width:0;height:170px;object-fit:contain}
 @media(max-width:760px){.estrella-product-visual img{height:140px}}
+
+/* Objetivos destacados */
+.goal{background:#1d4ed8;color:#fff;border:2px solid #1e40af;padding:10px 14px;font-size:14px;font-weight:900;box-shadow:0 3px 10px rgba(29,78,216,.2);text-align:center}
+.submetric-title{color:#1e40af}
