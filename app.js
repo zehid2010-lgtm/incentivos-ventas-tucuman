@@ -69,18 +69,21 @@ function renderMesaSummary(){
   $("mesaEstrellaTotal").textContent = e.length;
 
   const n = data.ninas.clients;
-  const cb = n.filter(c=>c.proteinBuyer).length;
-  const sb = n.filter(c=>c.snacksBuyer).length;
-  const cp = n.length ? cb/n.length*100 : 0;
-  const sp = n.length ? sb/n.length*100 : 0;
+  const official = data.ninas.mesaSummary;
+  const total = official ? official.total : n.length;
+  const cb = official ? official.proteinBuyers : n.filter(c=>c.proteinBuyer).length;
+  const sb = official ? official.snacksBuyers : n.filter(c=>c.snacksBuyer).length;
+  const cp = total ? cb/total*100 : 0;
+  const sp = total ? sb/total*100 : 0;
+  const mesaPct = value => `${value.toFixed(2).replace(".",",")}%`;
 
-  $("mesaProteinPct").textContent = pct(cp);
+  $("mesaProteinPct").textContent = mesaPct(cp);
   $("mesaProteinBuyers").textContent = cb;
-  $("mesaProteinTotal").textContent = n.length;
+  $("mesaProteinTotal").textContent = total;
 
-  $("mesaSnacksPct").textContent = pct(sp);
+  $("mesaSnacksPct").textContent = mesaPct(sp);
   $("mesaSnacksBuyers").textContent = sb;
-  $("mesaSnacksTotal").textContent = n.length;
+  $("mesaSnacksTotal").textContent = total;
 }
 
 function renderSummary(route){
