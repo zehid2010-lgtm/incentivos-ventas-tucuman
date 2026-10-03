@@ -35,6 +35,15 @@ jobs:
               raise ValueError("Actualizar Office Script: se requiere reporte de octubre con Proteína + Snacks.")
 
           clients = payload.get("clients")
+          if clients is None and isinstance(payload.get("c"), list):
+              clients = [{
+                  "route": str(x.get("r", "")),
+                  "client": str(x.get("n", "")),
+                  "clientId": str(x.get("i", "")),
+                  "channel": str(x.get("h", "")),
+                  "proteinBuyer": x.get("p", 0) > 0,
+                  "snacksBuyer": x.get("s", 0) > 0
+              } for x in payload["c"]]
           if not isinstance(clients, list):
               raise ValueError("Falta la lista de clientes del reporte de octubre.")
           for client in clients:
@@ -45,7 +54,7 @@ jobs:
               "incentive": "3 Niñas · Proteína + Snacks",
               "period": "2026-10",
               "targets": {"protein": 45, "snacks": 35},
-              "updatedAt": payload.get("updatedAt"),
+              "updatedAt": payload.get("updatedAt", payload.get("u")),
               "rules": {"buyer": "1 = comprador; 0 o vacío = no comprador"},
               "clients": clients
           }
