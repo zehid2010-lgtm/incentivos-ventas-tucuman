@@ -19,7 +19,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Actualizar reporte de octubre: Proteína + Snacks
+      - name: "Actualizar reporte de octubre: Proteína + Snacks"
         run: |
           python - <<'PY'
           import json
