@@ -1,45 +1,33 @@
 # Incentivos de Venta – Tucumán
 
-Aplicación web móvil para seguimiento de dos incentivos en rutas 40–45:
+Aplicación web móvil para seguimiento de incentivos en rutas 40–45.
 
-1. **Estrella Galicia**
-   - Fuente: solapa `CLIENTES` / columna `COMPRAD ESTRELLA GALICIA`
-   - `100%` = comprador
-   - vacío = no comprador
-   - Meta de cobertura: **60%**
+## Seguridad de datos
 
-2. **3 Niñas**
-   - Fuente: solapa `CLIENTE`
-   - Columnas: `CREMA` y `SNACKS`
-   - `1` = comprador
-   - `0` o vacío = no comprador
-   - Meta Cremas: **35%**
-   - Meta Snacks: **35%**
+Los archivos con nombres y códigos de clientes **no se guardan en GitHub**.
+La aplicación obtiene los JSON desde OneDrive/SharePoint mediante Microsoft Graph y autenticación corporativa.
 
-## Estructura
+Archivos de configuración:
+- `secure-config.js`: tenantId, clientId y enlaces compartidos corporativos.
+- `secure-data.js`: autenticación MSAL y lectura de datos vía Microsoft Graph.
+- `app.js`: consume los datos mediante el cargador seguro.
 
-- `index.html` interfaz
-- `styles.css` estilos
-- `app.js` cálculo de cobertura, faltantes y filtros
-- `data/estrella.json` datos normalizados de Estrella Galicia
-- `data/tres-ninas.json` datos normalizados de 3 Niñas
-- `power-automate/` scripts de extracción para usar desde Power Automate + Excel Online
+No colocar secretos, tokens ni contraseñas en el repositorio.
 
-## Importante
+## Flujo Estrella Galicia
 
-Los datos contienen nombres y códigos de clientes. **No publicar este repositorio como público.**
-Usar repositorio privado y un método de publicación/autenticación aprobado por la empresa.
+1. Power Automate recibe el correo.
+2. Guarda temporalmente el Excel.
+3. Ejecuta el Office Script `Estrella Galicia 2026`.
+4. Actualiza `/Incentivos/estrella.json` en OneDrive.
+5. La app lee ese archivo con autenticación Microsoft.
 
-## Prueba local
+## Datos requeridos antes de producción
 
-Como la app carga archivos JSON, debe abrirse mediante HTTP. Por ejemplo:
+Completar `secure-config.js` con:
+- `tenantId`
+- `clientId`
+- `estrellaShareUrl`
+- `tresNinasShareUrl`
 
-```bash
-python -m http.server 8080
-```
-
-y luego abrir `http://localhost:8080`.
-
-## Próximo paso
-
-Configurar dos flujos en Power Automate (o uno con dos ramas) que detecten los correos de BI, guarden el Excel temporalmente, ejecuten el Office Script correspondiente y actualicen los JSON usados por la app.
+La app Entra debe permitir el origen donde se publica esta aplicación y contar con permiso delegado `Files.Read`.
