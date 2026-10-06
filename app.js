@@ -11,6 +11,13 @@ const ceilTarget = (total, targetPct) => Math.ceil(total * targetPct / 100);
 const formatDate = value => new Date(value).toLocaleString("es-AR",{dateStyle:"short",timeStyle:"short"});
 
 async function fetchJson(path){
+  if (path.endsWith("estrella.json")) {
+    return window.secureData.load("estrella");
+  }
+  if (path.endsWith("tres-ninas.json")) {
+    return window.secureData.load("tres-ninas");
+  }
+
   const separator = path.includes("?") ? "&" : "?";
   const response = await fetch(`${path}${separator}v=${Date.now()}`, { cache:"no-store" });
   if(!response.ok) throw new Error(`No se pudo cargar ${path}: HTTP ${response.status}`);
