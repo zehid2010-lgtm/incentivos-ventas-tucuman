@@ -19,22 +19,26 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: "Actualizar reporte de octubre: Proteína + Snacks"
+      - name: Validar y actualizar reporte de octubre
         run: |
           python - <<'PY'
           import json
           import os
-          from datetime import datetime
 
           with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
               event = json.load(f)
 
-          payload = event["client_payload"]["data"]
+          payload = event.get("client_payload", {}).get("data")
+          if not isinstance(payload, dict):
+              raise ValueError("Carga inválida: falta client_payload.data.")
 
           if payload.get("period") != "2026-10":
-              raise ValueError("Actualizar Office Script: se requiere reporte de octubre con Proteína + Snacks.")
+              raise ValueError(
+                  "Carga rechazada: se requiere reporte de octubre 2026 con Proteína + Snacks."
+              )
 
           clients = payload.get("clients")
+
           if clients is None and isinstance(payload.get("c"), list):
               clients = [{
                   "route": str(x.get("r", "")),
@@ -45,27 +49,76 @@ jobs:
                   "proteinBuyer": x.get("p", 0) > 0,
                   "snacksBuyer": x.get("s", 0) > 0
               } for x in payload["c"]]
-          if not isinstance(clients, list):
-              raise ValueError("Falta la lista de clientes del reporte de octubre.")
-          for client in clients:
-              if not isinstance(client.get("proteinBuyer"), bool) or not isinstance(client.get("snacksBuyer"), bool):
-                  raise ValueError("El reporte debe incluir proteinBuyer y snacksBuyer.")
+
+          if not isinstance(clients, list) or len(clients) == 0:
+              raise ValueError("Carga rechazada: el reporte no contiene clientes.")
+
+          required_routes = {"40", "41", "42", "43", "44", "45"}
+          routes_found = set()
+
+          for i, client in enumerate(clients):
+              if not isinstance(client, dict):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} tiene formato inválido."
+                  )
+
+              route = str(client.get("route", "")).strip()
+              name = str(client.get("client", "")).strip()
+              protein = client.get("proteinBuyer")
+              snacks = client.get("snacksBuyer")
+
+              if route in required_routes:
+                  routes_found.add(route)
+
+              if route not in required_routes:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} tiene ruta inválida '{route}'."
+                  )
+
+              if not name:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene nombre."
+                  )
+
+              if not isinstance(protein, bool):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene proteinBuyer booleano."
+                  )
+
+              if not isinstance(snacks, bool):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene snacksBuyer booleano."
+                  )
+
+          missing_routes = sorted(required_routes - routes_found)
+          if missing_routes:
+              raise ValueError(
+                  "Carga rechazada: faltan rutas obligatorias: " + ", ".join(missing_routes)
+              )
+
+          updated_at = payload.get("updatedAt", payload.get("u"))
+          if not updated_at:
+              raise ValueError("Carga rechazada: falta updatedAt.")
 
           incoming = {
               "incentive": "3 Niñas · Proteína + Snacks",
               "period": "2026-10",
               "targets": {"protein": 45, "snacks": 35},
-              "updatedAt": payload.get("updatedAt", payload.get("u")),
+              "updatedAt": updated_at,
               "rules": {"buyer": "1 = comprador; 0 o vacío = no comprador"},
               "clients": clients
           }
 
-          # El reporte BI vigente es la fuente de verdad para 3 Niñas.
-          # No acumulamos estados anteriores: cada ejecución reemplaza el avance
-          # con la foto actual del mes que llega en el Excel.
-
+          # El reporte BI vigente es la fuente de verdad.
+          # Solo se reemplaza tres-ninas.json si la validación completa fue exitosa.
           with open("tres-ninas.json", "w", encoding="utf-8") as f:
               json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
+
+          print(
+              f"Validación OK: {len(clients)} clientes, "
+              f"rutas {', '.join(sorted(routes_found))}, "
+              f"objetivos Proteína 45% / Snacks 35%."
+          )
           PY
 
       - name: Guardar cambios
