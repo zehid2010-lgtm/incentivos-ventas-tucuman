@@ -19,7 +19,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Actualizar estrella.json con la foto actual del reporte
+      - name: Validar y actualizar estrella.json
         run: |
           python - <<'PY'
           import json
@@ -28,12 +28,64 @@ jobs:
           with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
               event = json.load(f)
 
-          incoming = event["client_payload"]["data"]
+          incoming = event.get("client_payload", {}).get("data")
+          if not isinstance(incoming, dict):
+              raise ValueError("Carga inválida: falta client_payload.data.")
+
+          clients = incoming.get("clients")
+          if not isinstance(clients, list) or len(clients) == 0:
+              raise ValueError("Carga rechazada: el reporte no contiene clientes.")
+
+          required_routes = {"40", "41", "42", "43", "44", "45"}
+          routes_found = set()
+
+          for i, client in enumerate(clients):
+              if not isinstance(client, dict):
+                  raise ValueError(f"Carga rechazada: cliente #{i+1} tiene formato inválido.")
+
+              route = str(client.get("route", "")).strip()
+              name = str(client.get("client", "")).strip()
+              buyer = client.get("buyer")
+
+              if route in required_routes:
+                  routes_found.add(route)
+
+              if route not in required_routes:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} tiene ruta inválida '{route}'."
+                  )
+
+              if not name:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene nombre."
+                  )
+
+              if not isinstance(buyer, bool):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene buyer booleano."
+                  )
+
+          missing_routes = sorted(required_routes - routes_found)
+          if missing_routes:
+              raise ValueError(
+                  "Carga rechazada: faltan rutas obligatorias: " + ", ".join(missing_routes)
+              )
+
+          target = incoming.get("target")
+          if target != 60:
+              raise ValueError(
+                  f"Carga rechazada: objetivo inesperado ({target}). Se esperaba 60."
+              )
 
           # El reporte recibido desde Power Automate es la fuente de verdad.
-          # Cada ejecución reemplaza la foto anterior; no se acumulan compradores.
+          # Solo se reemplaza estrella.json si la validación completa fue exitosa.
           with open("estrella.json", "w", encoding="utf-8") as f:
               json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
+
+          print(
+              f"Validación OK: {len(clients)} clientes, "
+              f"rutas {', '.join(sorted(routes_found))}, objetivo {target}%."
+          )
           PY
 
       - name: Guardar cambios
