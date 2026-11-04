@@ -1,7 +1,7 @@
 const ROUTES = ["40","41","42","43","44","45"];
 const DATA_BASE = "./";
 let data = { estrella:null, ninas:null };
-let currentMode = "estrella";
+let currentMode = "ninas";
 let currentStatus = "all";
 let currentCategory = "protein";
 
@@ -18,15 +18,11 @@ async function fetchJson(path){
 }
 
 async function loadData(){
-  const [e,n] = await Promise.all([
-    fetchJson(DATA_BASE + "estrella.json"),
-    fetchJson(DATA_BASE + "tres-ninas.json")
-  ]);
-  data.estrella={...e, paused:true, clients:[], routeCoverage:{}, overallCoverage:0, target:0};
+  const n = await fetchJson(DATA_BASE + "tres-ninas.json");
   const novemberReady = n.period === "2026-11" && Array.isArray(n.clients) && n.clients.length > 0 && n.clients.every(c => typeof c.choco1lBuyer === "boolean" && typeof c.choco200mlBuyer === "boolean");
   data.ninas = {...n, ready:novemberReady, targets:{protein:15,snacks:50}, mesaSummary:novemberReady ? n.chocoMesaSummary : null,
     clients:n.clients.map(c => ({...c, proteinBuyer:novemberReady ? c.choco1lBuyer : false, snacksBuyer:novemberReady ? c.choco200mlBuyer : false}))};
-  $("lastUpdate").textContent = `Estrella: pausado · 3 Niñas: ${formatDate(n.updatedAt)}`;
+  $("lastUpdate").textContent = `3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
 
@@ -58,17 +54,6 @@ function render(){
 }
 
 function renderMesaSummary(){
-  const e = data.estrella.clients;
-  const eb = e.filter(c=>c.buyer).length;
-  const calculatedEp = e.length ? eb/e.length*100 : 0;
-  const ep = Number.isFinite(Number(data.estrella?.overallCoverage))
-    ? Number(data.estrella.overallCoverage)
-    : calculatedEp;
-
-  $("mesaEstrellaPct").textContent = pct(ep);
-  $("mesaEstrellaBuyers").textContent = eb;
-  $("mesaEstrellaTotal").textContent = e.length;
-
   const n = data.ninas.clients;
   const official = data.ninas.mesaSummary;
   const total = official ? official.total : n.filter(c => c.baseBuyer !== false).length;
@@ -88,18 +73,6 @@ function renderMesaSummary(){
 }
 
 function renderSummary(route){
-  const e = routeClients(data.estrella, route);
-  const ep = officialEstrellaPct(route, e);
-  const eb = Number.isFinite(data.estrella?.routeCoverage?.[route])
-    ? Math.round(e.length * ep / 100)
-    : e.filter(c=>c.buyer).length;
-  const et = ceilTarget(e.length, data.estrella.target);
-  $("estrellaPct").textContent=pct(ep);
-  $("estrellaBuyers").textContent=eb;
-  $("estrellaTotal").textContent=e.length;
-  $("estrellaMissing").textContent=Math.max(0,et-eb);
-  $("estrellaBar").style.width=`${Math.min(ep,100)}%`;
-
   const n = routeClients(data.ninas, route);
   const cb = n.filter(c=>c.proteinBuyer).length;
   const sb = n.filter(c=>c.snacksBuyer).length;
