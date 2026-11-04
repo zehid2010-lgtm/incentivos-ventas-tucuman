@@ -22,11 +22,11 @@ async function loadData(){
     fetchJson(DATA_BASE + "estrella.json"),
     fetchJson(DATA_BASE + "tres-ninas.json")
   ]);
-  data.estrella=e;
+  data.estrella={...e, paused:true, clients:[], routeCoverage:{}, overallCoverage:0, target:0};
   const novemberReady = n.period === "2026-11" && Array.isArray(n.clients) && n.clients.length > 0 && n.clients.every(c => typeof c.choco1lBuyer === "boolean" && typeof c.choco200mlBuyer === "boolean");
   data.ninas = {...n, ready:novemberReady, targets:{protein:15,snacks:50}, mesaSummary:novemberReady ? n.chocoMesaSummary : null,
     clients:n.clients.map(c => ({...c, proteinBuyer:novemberReady ? c.choco1lBuyer : false, snacksBuyer:novemberReady ? c.choco200mlBuyer : false}))};
-  $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
+  $("lastUpdate").textContent = `Estrella: pausado · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
 
@@ -128,6 +128,12 @@ function renderList(route){
 
   $("listTitle").textContent = currentMode==="estrella" ? "Clientes Estrella Galicia" : "Clientes 3 Niñas";
   $("categoryFilters").classList.toggle("hidden", currentMode!=="ninas");
+
+  if (currentMode === "estrella" && data.estrella.paused) {
+    $("clientCount").textContent = "Concurso pausado";
+    list.innerHTML = '<div class="empty">Estrella Galicia pausado hasta recibir el nuevo informe del concurso.</div>';
+    return;
+  }
 
   clients = clients.filter(c=>{
     const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="protein" ? c.proteinBuyer : c.snacksBuyer);
