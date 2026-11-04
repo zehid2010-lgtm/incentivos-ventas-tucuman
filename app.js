@@ -23,9 +23,9 @@ async function loadData(){
     fetchJson(DATA_BASE + "tres-ninas.json")
   ]);
   data.estrella=e;
-  const octoberReady = n.period === "2026-10" && n.clients.every(c => typeof c.proteinBuyer === "boolean");
-  data.ninas = {...n, ready:octoberReady, targets:{protein:45,snacks:35},
-    clients:n.clients.map(c => ({...c, proteinBuyer:octoberReady ? c.proteinBuyer : false, snacksBuyer:octoberReady ? c.snacksBuyer : false}))};
+  const novemberReady = n.period === "2026-11" && Array.isArray(n.clients) && n.clients.length > 0 && n.clients.every(c => typeof c.choco1lBuyer === "boolean" && typeof c.choco200mlBuyer === "boolean");
+  data.ninas = {...n, ready:novemberReady, targets:{protein:15,snacks:50}, mesaSummary:novemberReady ? n.chocoMesaSummary : null,
+    clients:n.clients.map(c => ({...c, proteinBuyer:novemberReady ? c.choco1lBuyer : false, snacksBuyer:novemberReady ? c.choco200mlBuyer : false}))};
   $("lastUpdate").textContent = `Estrella: ${formatDate(e.updatedAt)} · 3 Niñas: ${formatDate(n.updatedAt)}`;
   render();
 }
@@ -46,12 +46,13 @@ function render(){
   renderMesaSummary();
   renderSummary(route);
   renderList(route);
-  $("ninasDataStatus").textContent = data.ninas.ready ? "Reporte de octubre · Proteína + Snacks" : "Pendiente de reporte de octubre";
+  $("ninasDataStatus").textContent = data.ninas.ready ? "Reporte de noviembre · Choco 1 L + Choco 200 ml" : "Pendiente de reporte de noviembre";
   if (!data.ninas.ready) {
+    ["proteinBar","snacksBar"].forEach(id => $(id).style.width = "0%");
     ["mesaProteinPct","mesaSnacksPct","proteinPct","snacksPct","mesaProteinBuyers","mesaSnacksBuyers","proteinBuyers","snacksBuyers","proteinMissing","snacksMissing","mesaProteinTotal","mesaSnacksTotal"].forEach(id => $(id).textContent = "—");
     if (currentMode === "ninas") {
-      $("clientCount").textContent = "Pendiente de reporte de octubre";
-      $("clientList").innerHTML = '<div class="empty">Esperando el reporte de octubre con Proteína y Snacks.</div>';
+      $("clientCount").textContent = "Pendiente de reporte de noviembre";
+      $("clientList").innerHTML = '<div class="empty">Esperando el reporte de noviembre con Choco 1 L y Choco 200 ml.</div>';
     }
   }
 }
