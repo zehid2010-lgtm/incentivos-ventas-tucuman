@@ -1,43 +1,174 @@
+const ROUTES = ["40","41","42","43","44","45"];
+const DATA_BASE = "./";
+let data = { estrella:null, ninas:null };
+let currentMode = "ninas";
+let currentStatus = "all";
+let currentCategory = "protein";
+
 const $ = id => document.getElementById(id);
-const pct = (buyers, total) => (buyers * 100 / total)
-  .toLocaleString("es-AR", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "%";
+const pct = value => `${value.toFixed(2).replace(".",",")}%`;
+const ceilTarget = (total, targetPct) => Math.ceil(total * targetPct / 100);
+const formatDate = value => new Date(value).toLocaleString("es-AR",{dateStyle:"short",timeStyle:"short"});
 
-async function loadChoco() {
-  const response = await fetch("./choco-noviembre.json", {cache: "no-store"});
-  if (!response.ok) throw new Error("No se pudo cargar el resumen Choco.");
-  const {avanceReporte: summary, corte, updatedAt} = await response.json();
-  const selector = $("routeSelect");
-
-  $("lastUpdate").textContent = corte ? "Corte del reporte · 07/11/2026" :
-    "Recepción · " + new Date(updatedAt).toLocaleString("es-AR", {
-      timeZone: "America/Argentina/Buenos_Aires", dateStyle: "short", timeStyle: "short"
-    });
-  $("ninasDataStatus").textContent = "Avance por ruta · Reporte de noviembre";
-  $("mesaProteinPct").textContent = pct(summary.choco1L, summary.clientesBase);
-  $("mesaSnacksPct").textContent = pct(summary.choco200ml, summary.clientesBase);
-  $("mesaProteinBuyers").textContent = summary.choco1L;
-  $("mesaSnacksBuyers").textContent = summary.choco200ml;
-  $("mesaProteinTotal").textContent = summary.clientesBase;
-  $("mesaSnacksTotal").textContent = summary.clientesBase;
-
-  function renderRoute() {
-    const route = summary.porRuta.find(row => row.ruta === selector.value);
-    $("ninasDataStatus").textContent = "Reporte de noviembre · " + route.clientesBase + " clientes base";
-    for (const [prefix, buyers, target] of [
-      ["protein", route.choco1L, 15], ["snacks", route.choco200ml, 50]
-    ]) {
-      $(prefix + "Pct").textContent = pct(buyers, route.clientesBase);
-      $(prefix + "Buyers").textContent = buyers;
-      $(prefix + "Missing").textContent = Math.max(0, Math.ceil(route.clientesBase * target / 100) - buyers);
-      $(prefix + "Bar").style.width = buyers * 100 / route.clientesBase + "%";
-    }
-  }
-
-  selector.addEventListener("change", renderRoute);
-  renderRoute();
+async function fetchJson(path){
+  const separator = path.includes("?") ? "&" : "?";
+  const response = await fetch(`${path}${separator}v=${Date.now()}`, { cache:"no-store" });
+  if(!response.ok) throw new Error(`No se pudo cargar ${path}: HTTP ${response.status}`);
+  return response.json();
 }
 
-loadChoco().catch(error => {
-  console.error(error);
-  $("lastUpdate").textContent = "Error al cargar el reporte Choco";
+async function loadData(){
+  const n = await fetchJson(DATA_BASE + "tres-ninas.json");
+  const novemberReady = n.period === "2026-11" && Array.isArray(n.clients) && n.clients.length > 0 && n.clients.every(c => typeof c.choco1lBuyer === "boolean" && typeof c.choco200mlBuyer === "boolean");
+  data.ninas = {...n, ready:novemberReady, targets:{protein:15,snacks:50}, mesaSummary:novemberReady ? n.chocoMesaSummary : null,
+    clients:n.clients.map(c => ({...c, proteinBuyer:novemberReady ? c.choco1lBuyer : false, snacksBuyer:novemberReady ? c.choco200mlBuyer : false}))};
+  $("lastUpdate").textContent = `3 Niñas: ${formatDate(n.updatedAt)}`;
+  render();
+}
+
+function routeClients(source, route){
+  return source.clients.filter(c=>c.route===route);
+}
+
+function officialEstrellaPct(route, clients){
+  const value = data.estrella?.routeCoverage?.[route];
+  return Number.isFinite(Number(value))
+    ? Number(value)
+    : (clients.length ? clients.filter(c=>c.buyer).length/clients.length*100 : 0);
+}
+
+function render(){
+  const route = $("routeSelect").value;
+  renderMesaSummary();
+  renderSummary(route);
+  renderList(route);
+  $("ninasDataStatus").textContent = data.ninas.ready ? "Reporte de noviembre · Choco 1 L + Choco 200 ml" : "Pendiente de reporte de noviembre";
+  if (!data.ninas.ready) {
+    ["proteinBar","snacksBar"].forEach(id => $(id).style.width = "0%");
+    ["mesaProteinPct","mesaSnacksPct","proteinPct","snacksPct","mesaProteinBuyers","mesaSnacksBuyers","proteinBuyers","snacksBuyers","proteinMissing","snacksMissing","mesaProteinTotal","mesaSnacksTotal"].forEach(id => $(id).textContent = "—");
+    if (currentMode === "ninas") {
+      $("clientCount").textContent = "Pendiente de reporte de noviembre";
+      $("clientList").innerHTML = '<div class="empty">Esperando el reporte de noviembre con Choco 1 L y Choco 200 ml.</div>';
+    }
+  }
+}
+
+function renderMesaSummary(){
+  const n = data.ninas.clients;
+  const official = data.ninas.mesaSummary;
+  const total = official ? official.total : n.filter(c => c.baseBuyer !== false).length;
+  const cb = official ? official.proteinBuyers : n.filter(c=>c.proteinBuyer).length;
+  const sb = official ? official.snacksBuyers : n.filter(c=>c.snacksBuyer).length;
+  const cp = total ? cb/total*100 : 0;
+  const sp = total ? sb/total*100 : 0;
+  const mesaPct = value => `${value.toFixed(2).replace(".",",")}%`;
+
+  $("mesaProteinPct").textContent = mesaPct(cp);
+  $("mesaProteinBuyers").textContent = cb;
+  $("mesaProteinTotal").textContent = total;
+
+  $("mesaSnacksPct").textContent = mesaPct(sp);
+  $("mesaSnacksBuyers").textContent = sb;
+  $("mesaSnacksTotal").textContent = total;
+}
+
+function renderSummary(route){
+  const n = routeClients(data.ninas, route);
+  const cb = n.filter(c=>c.proteinBuyer).length;
+  const sb = n.filter(c=>c.snacksBuyer).length;
+  const total = n.filter(c => c.baseBuyer !== false).length;
+  const cp = total ? cb/total*100 : 0;
+  const sp = total ? sb/total*100 : 0;
+  const ct = ceilTarget(total, data.ninas.targets.protein);
+  const st = ceilTarget(total, data.ninas.targets.snacks);
+  $("proteinPct").textContent=pct(cp);
+  $("proteinBuyers").textContent=cb;
+  $("proteinMissing").textContent=Math.max(0,ct-cb);
+  $("proteinBar").style.width=`${Math.min(cp,100)}%`;
+  $("snacksPct").textContent=pct(sp);
+  $("snacksBuyers").textContent=sb;
+  $("snacksMissing").textContent=Math.max(0,st-sb);
+  $("snacksBar").style.width=`${Math.min(sp,100)}%`;
+}
+
+function renderList(route){
+  const q = $("searchInput").value.trim().toLowerCase();
+  const list = $("clientList");
+  list.innerHTML="";
+  let clients = currentMode==="estrella"
+    ? routeClients(data.estrella,route)
+    : routeClients(data.ninas,route);
+
+  $("listTitle").textContent = currentMode==="estrella" ? "Clientes Estrella Galicia" : "Clientes 3 Niñas";
+  $("categoryFilters").classList.toggle("hidden", currentMode!=="ninas");
+
+  if (currentMode === "estrella" && data.estrella.paused) {
+    $("clientCount").textContent = "Concurso pausado";
+    list.innerHTML = '<div class="empty">Estrella Galicia pausado hasta recibir el nuevo informe del concurso.</div>';
+    return;
+  }
+
+  clients = clients.filter(c=>{
+    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="protein" ? c.proteinBuyer : c.snacksBuyer);
+    const statusOk = currentStatus==="all" || (currentStatus==="buyers" && buyer) || (currentStatus==="pending" && !buyer);
+    const searchOk = !q || c.client.toLowerCase().includes(q) || String(c.clientId).toLowerCase().includes(q);
+    return statusOk && searchOk;
+  });
+
+  clients.sort((a,b)=>{
+    const ab = currentMode==="estrella" ? a.buyer : (currentCategory==="protein" ? a.proteinBuyer : a.snacksBuyer);
+    const bb = currentMode==="estrella" ? b.buyer : (currentCategory==="protein" ? b.proteinBuyer : b.snacksBuyer);
+    if(ab!==bb) return ab ? 1 : -1;
+    return a.client.localeCompare(b.client,"es");
+  });
+
+  $("clientCount").textContent=`${clients.length} clientes mostrados`;
+
+  if(!clients.length){
+    list.innerHTML='<div class="empty">No hay clientes para este filtro.</div>';
+    return;
+  }
+
+  const tpl=$("clientTemplate");
+  clients.forEach(c=>{
+    const node=tpl.content.cloneNode(true);
+    node.querySelector(".client-name").textContent=c.client;
+    node.querySelector(".client-meta").textContent=`${c.clientId} · ${c.channel}`;
+    const buyer = currentMode==="estrella" ? c.buyer : (currentCategory==="protein" ? c.proteinBuyer : c.snacksBuyer);
+    const badge=node.querySelector(".client-status");
+    badge.className=`client-status badge ${buyer?"ok":"pending"}`;
+    badge.textContent=buyer?"COMPRADOR":"PENDIENTE";
+    list.appendChild(node);
+  });
+}
+
+document.addEventListener("click",e=>{
+  const open=e.target.closest("[data-open]");
+  if(open){
+    currentMode=open.dataset.open;
+    currentStatus="all";
+    document.querySelectorAll("#statusFilters button").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));
+    render();
+    document.querySelector(".list-card").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  const sf=e.target.closest("#statusFilters button");
+  if(sf){
+    currentStatus=sf.dataset.filter;
+    document.querySelectorAll("#statusFilters button").forEach(b=>b.classList.toggle("active",b===sf));
+    render();
+  }
+  const cf=e.target.closest("#categoryFilters button");
+  if(cf){
+    currentCategory=cf.dataset.category;
+    document.querySelectorAll("#categoryFilters button").forEach(b=>b.classList.toggle("active",b===cf));
+    render();
+  }
+});
+$("routeSelect").addEventListener("change",render);
+$("searchInput").addEventListener("input",render);
+
+loadData().catch(err=>{
+  console.error(err);
+  $("lastUpdate").textContent="Error al cargar los datos";
+  $("clientList").innerHTML='<div class="empty">No se pudieron cargar los archivos JSON.</div>';
 });
