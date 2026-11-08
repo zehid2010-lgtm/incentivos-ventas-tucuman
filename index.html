@@ -34,7 +34,7 @@
         <option value="43">Ruta 43</option>
       </select>
       <div class="toolbar-spacer"></div>
-      <input id="searchInput" type="search" placeholder="Buscar cliente o código" />
+      <input id="searchInput" type="search" placeholder="Buscar código de cliente" />
     </section>
 
     <section class="card mesa-card">
@@ -94,24 +94,33 @@
         </div>
 
         <p id="ninasDataStatus" class="subtitle">Pendiente de reporte de noviembre</p>
-<a href="#chocoClients">Ver clientes</a>
+<button class="primary" type="button" id="openChocoClients">Ver clientes</button>
       </article>
     </section>
 
     
   
-<section class="card" id="chocoClients">
-  <h2>Clientes por ruta</h2>
-  <p id="chocoClientCount" aria-live="polite">Cargando listado…</p>
-  <p>El listado usa Campo Minado. En ruta 40 registra un comprador menos por producto que el resumen oficial.</p>
-  <label>Buscar código <input id="chocoClientSearch" type="search" inputmode="numeric"></label>
-  <label>Producto <select id="chocoClientProduct"><option value="2">Choco 1 L</option><option value="3">Choco 200 ml</option></select></label>
-  <label>Estado <select id="chocoClientStatus"><option value="">Todos</option><option value="1">Compró</option><option value="0">Pendiente</option></select></label>
-  <table style="width:100%;text-align:left;margin-top:1rem">
-    <thead><tr><th scope="col">Código</th><th scope="col">Choco 1 L</th><th scope="col">Choco 200 ml</th></tr></thead>
-    <tbody id="chocoClientRows"></tbody>
-  </table>
-</section>
+<section class="card list-card" id="chocoClients">
+      <div class="list-head">
+        <div>
+          <span class="tag">DETALLE</span>
+          <h2 id="listTitle">Clientes 3 Niñas</h2>
+        </div>
+        <div class="segmented" id="statusFilters">
+          <button class="active" data-filter="all">Todos</button>
+          <button data-filter="buyers">Compradores</button>
+          <button data-filter="pending">Pendientes</button>
+        </div>
+      </div>
+
+      <div class="category-filters" id="categoryFilters">
+        <button class="active" data-category="protein">Choco 1 L</button>
+        <button data-category="snacks">Choco 200 ml</button>
+      </div>
+
+      <div id="clientCount" class="count"></div>
+      <div id="clientList" class="client-list"></div>
+    </section>
 </main>
 
   <template id="clientTemplate">
@@ -124,7 +133,7 @@
     </article>
   </template>
 
-  <script src="app.js?v=20261108-clientes"></script>
+  <script src="app.js?v=20261108-fichas"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
