@@ -66,7 +66,7 @@ jobs:
           }
           with open("choco-noviembre.json", "w", encoding="utf-8") as f:
               json.dump(incoming, f, ensure_ascii=False, indent=2)
-              f.write("\\n")
+              f.write("\n")
           PY
 
       - name: Guardar cambios
