@@ -52,15 +52,15 @@ async function loadClients() {
   let product = 2;
   let status = "all";
   function render() {
-    const query = search.value.trim();
-    const rows = clientes.filter(row => row[0] === selector.value && row[1].includes(query) &&
+    const query = search.value.trim().toLocaleLowerCase("es");
+    const rows = clientes.filter(row => row[0] === selector.value && (row[1].includes(query) || (row[4] || "").toLocaleLowerCase("es").includes(query)) &&
       (status === "all" || Boolean(row[product]) === (status === "buyers")));
     rows.sort((a, b) => a[product] - b[product] || a[1].localeCompare(b[1], "es", {numeric:true}));
     $("clientCount").textContent = rows.length + " clientes · Ruta " + selector.value + " · Corte " + corte;
     list.replaceChildren(...rows.map(row => {
       const item = $("clientTemplate").content.cloneNode(true);
-      item.querySelector(".client-name").textContent = row[1];
-      item.querySelector(".client-meta").textContent = product === 2 ? "Choco 1 L" : "Choco 200 ml";
+      item.querySelector(".client-name").textContent = row[4] || row[1];
+      item.querySelector(".client-meta").textContent = row[1] + " · " + (product === 2 ? "Choco 1 L" : "Choco 200 ml");
       const badge = item.querySelector(".client-status");
       badge.className = "client-status badge " + (row[product] ? "ok" : "pending");
       badge.textContent = row[product] ? "COMPRADOR" : "PENDIENTE";
