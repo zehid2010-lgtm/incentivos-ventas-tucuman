@@ -32,8 +32,6 @@
         <option value="41">Ruta 41</option>
         <option value="42">Ruta 42</option>
         <option value="43">Ruta 43</option>
-        <option value="44">Ruta 44</option>
-        <option value="45">Ruta 45</option>
       </select>
       <div class="toolbar-spacer"></div>
       <input id="searchInput" type="search" placeholder="Buscar cliente o código" />
@@ -45,7 +43,7 @@
           <span class="tag">TOTAL MESA</span>
           <h2>Resumen general</h2>
         </div>
-        <span class="mesa-note">Total de todos los vendedores</span>
+        <span class="mesa-note">Total rutas 40, 41, 42 y 43</span>
       </div>
 
       <div class="mesa-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));">
@@ -96,31 +94,10 @@
         </div>
 
         <p id="ninasDataStatus" class="subtitle">Pendiente de reporte de noviembre</p>
-        <button class="primary" data-open="ninas">Ver clientes 3 Niñas</button>
       </article>
     </section>
 
-    <section class="card list-card">
-      <div class="list-head">
-        <div>
-          <span class="tag">DETALLE</span>
-          <h2 id="listTitle">Clientes 3 Niñas</h2>
-        </div>
-        <div class="segmented" id="statusFilters">
-          <button class="active" data-filter="all">Todos</button>
-          <button data-filter="buyers">Compradores</button>
-          <button data-filter="pending">Pendientes</button>
-        </div>
-      </div>
-
-      <div class="category-filters hidden" id="categoryFilters">
-        <button class="active" data-category="protein">Choco 1 L</button>
-        <button data-category="snacks">Choco 200 ml</button>
-      </div>
-
-      <div id="clientCount" class="count"></div>
-      <div id="clientList" class="client-list"></div>
-    </section>
+    
   </main>
 
   <template id="clientTemplate">
@@ -133,7 +110,7 @@
     </article>
   </template>
 
-  <script src="app.js?v=20261104-solo-choco"></script>
+  <script src="app.js?v=20261108-resumen-choco"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
