@@ -41,3 +41,33 @@ loadChoco().catch(error => {
   console.error(error);
   $("lastUpdate").textContent = "Error al cargar el reporte Choco";
 });
+
+async function loadClients() {
+  const response = await fetch("./choco-clientes.json", {cache: "no-store"});
+  if (!response.ok) throw new Error("No se pudo cargar el listado.");
+  const {corte, clientes} = await response.json();
+  const selector = $("routeSelect");
+  const render = () => {
+    const query = $("chocoClientSearch").value.trim();
+    const product = Number($("chocoClientProduct").value);
+    const status = $("chocoClientStatus").value;
+    const rows = clientes.filter(row => row[0] === selector.value && row[1].includes(query) &&
+      (status === "" || String(row[product]) === status));
+    $("chocoClientCount").textContent = "Ruta " + selector.value + " · " + rows.length + " clientes · Corte del listado " + corte;
+    $("chocoClientRows").replaceChildren(...rows.map(([, code, litro, chico]) => {
+      const row = document.createElement("tr");
+      for (const value of [code, litro ? "Compró" : "Pendiente", chico ? "Compró" : "Pendiente"]) {
+        const cell = row.insertCell();
+        cell.textContent = value;
+      }
+      return row;
+    }));
+  };
+  for (const id of ["routeSelect", "chocoClientProduct", "chocoClientStatus"]) $(id).addEventListener("change", render);
+  $("chocoClientSearch").addEventListener("input", render);
+  render();
+}
+
+loadClients().catch(() => {
+  $("chocoClientCount").textContent = "No se pudo cargar el listado de clientes.";
+});
