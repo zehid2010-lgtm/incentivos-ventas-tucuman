@@ -47,27 +47,50 @@ async function loadClients() {
   if (!response.ok) throw new Error("No se pudo cargar el listado.");
   const {corte, clientes} = await response.json();
   const selector = $("routeSelect");
-  const render = () => {
-    const query = $("chocoClientSearch").value.trim();
-    const product = Number($("chocoClientProduct").value);
-    const status = $("chocoClientStatus").value;
+  const search = $("searchInput");
+  const list = $("clientList");
+  let product = 2;
+  let status = "all";
+  function render() {
+    const query = search.value.trim();
     const rows = clientes.filter(row => row[0] === selector.value && row[1].includes(query) &&
-      (status === "" || String(row[product]) === status));
-    $("chocoClientCount").textContent = "Ruta " + selector.value + " · " + rows.length + " clientes · Corte del listado " + corte;
-    $("chocoClientRows").replaceChildren(...rows.map(([, code, litro, chico]) => {
-      const row = document.createElement("tr");
-      for (const value of [code, litro ? "Compró" : "Pendiente", chico ? "Compró" : "Pendiente"]) {
-        const cell = row.insertCell();
-        cell.textContent = value;
-      }
-      return row;
+      (status === "all" || Boolean(row[product]) === (status === "buyers")));
+    rows.sort((a, b) => a[product] - b[product] || a[1].localeCompare(b[1], "es", {numeric:true}));
+    $("clientCount").textContent = rows.length + " clientes · Ruta " + selector.value + " · Corte " + corte;
+    list.replaceChildren(...rows.map(row => {
+      const item = $("clientTemplate").content.cloneNode(true);
+      item.querySelector(".client-name").textContent = row[1];
+      item.querySelector(".client-meta").textContent = product === 2 ? "Choco 1 L" : "Choco 200 ml";
+      const badge = item.querySelector(".client-status");
+      badge.className = "client-status badge " + (row[product] ? "ok" : "pending");
+      badge.textContent = row[product] ? "COMPRADOR" : "PENDIENTE";
+      return item;
     }));
-  };
-  for (const id of ["routeSelect", "chocoClientProduct", "chocoClientStatus"]) $(id).addEventListener("change", render);
-  $("chocoClientSearch").addEventListener("input", render);
+    if (!rows.length) {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "No hay clientes para este filtro.";
+      list.append(empty);
+    }
+  }
+  for (const [id, key, change] of [
+    ["statusFilters", "filter", value => { status = value; }],
+    ["categoryFilters", "category", value => { product = value === "protein" ? 2 : 3; }]
+  ]) {
+    const group = $(id);
+    group.addEventListener("click", event => {
+      const button = event.target.closest("button");
+      if (!button || !button.dataset[key]) return;
+      change(button.dataset[key]);
+      group.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
+      render();
+    });
+  }
+  selector.addEventListener("change", render);
+  search.addEventListener("input", render);
+  $("openChocoClients").addEventListener("click", () => $("chocoClients").scrollIntoView({behavior:"smooth"}));
   render();
 }
-
 loadClients().catch(() => {
-  $("chocoClientCount").textContent = "No se pudo cargar el listado de clientes.";
+  $("clientCount").textContent = "No se pudo cargar el listado de clientes.";
 });
