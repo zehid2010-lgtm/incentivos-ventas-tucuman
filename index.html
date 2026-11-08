@@ -94,11 +94,25 @@
         </div>
 
         <p id="ninasDataStatus" class="subtitle">Pendiente de reporte de noviembre</p>
+<a href="#chocoClients">Ver clientes</a>
       </article>
     </section>
 
     
-  </main>
+  
+<section class="card" id="chocoClients">
+  <h2>Clientes por ruta</h2>
+  <p id="chocoClientCount" aria-live="polite">Cargando listado…</p>
+  <p>El listado usa Campo Minado. En ruta 40 registra un comprador menos por producto que el resumen oficial.</p>
+  <label>Buscar código <input id="chocoClientSearch" type="search" inputmode="numeric"></label>
+  <label>Producto <select id="chocoClientProduct"><option value="2">Choco 1 L</option><option value="3">Choco 200 ml</option></select></label>
+  <label>Estado <select id="chocoClientStatus"><option value="">Todos</option><option value="1">Compró</option><option value="0">Pendiente</option></select></label>
+  <table style="width:100%;text-align:left;margin-top:1rem">
+    <thead><tr><th scope="col">Código</th><th scope="col">Choco 1 L</th><th scope="col">Choco 200 ml</th></tr></thead>
+    <tbody id="chocoClientRows"></tbody>
+  </table>
+</section>
+</main>
 
   <template id="clientTemplate">
     <article class="client">
@@ -110,7 +124,7 @@
     </article>
   </template>
 
-  <script src="app.js?v=20261108-resumen-choco"></script>
+  <script src="app.js?v=20261108-clientes"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
