@@ -19,7 +19,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Validar y actualizar reporte Choco de noviembre
+      - name: Validar y actualizar reporte de octubre
         run: |
           python - <<'PY'
           import json
@@ -32,48 +32,100 @@ jobs:
           if not isinstance(payload, dict):
               raise ValueError("Carga inválida: falta client_payload.data.")
 
-          if payload.get("periodo") != "2026-11":
-              raise ValueError("Se requiere el reporte Choco de noviembre 2026.")
+          if payload.get("period") != "2026-10":
+              raise ValueError(
+                  "Carga rechazada: se requiere reporte de octubre 2026 con Proteína + Snacks."
+              )
 
-          routes = {"40", "41", "42", "43"}
-          metrics = ("clientesBase", "choco1L", "choco200ml")
+          clients = payload.get("clients")
 
-          def validate(summary):
-              if not isinstance(summary, dict) or not isinstance(summary.get("porRuta"), list):
-                  raise ValueError("Falta el resumen por ruta.")
-              rows = summary["porRuta"]
-              if len(rows) != len(routes) or {row.get("ruta") for row in rows} != routes:
-                  raise ValueError("Se requieren las rutas 40, 41, 42 y 43.")
-              for row in rows:
-                  if any(type(row.get(key)) is not int for key in metrics):
-                      raise ValueError("Los conteos por ruta deben ser enteros.")
-                  base, litro, chico = (row[key] for key in metrics)
-                  if base <= 0 or not (0 <= litro <= base and 0 <= chico <= base):
-                      raise ValueError("Los conteos exceden la base o son inválidos.")
-              totals = {key: sum(row[key] for row in rows) for key in metrics}
-              if any(type(summary.get(key)) is not int or summary[key] != value for key, value in totals.items()):
-                  raise ValueError("El total no coincide con la suma de las rutas.")
-              totals["porRuta"] = [{key: row[key] for key in ("ruta", *metrics)} for row in rows]
-              return totals
+          if clients is None and isinstance(payload.get("c"), list):
+              clients = [{
+                  "route": str(x.get("r", "")),
+                  "client": str(x.get("n", "")),
+                  "clientId": str(x.get("i", "")),
+                  "channel": str(x.get("h", "")),
+                  "baseBuyer": x.get("k", 1) > 0,
+                  "proteinBuyer": x.get("p", 0) > 0,
+                  "snacksBuyer": x.get("s", 0) > 0
+              } for x in payload["c"]]
 
-          from datetime import datetime, timezone
+          if not isinstance(clients, list) or len(clients) == 0:
+              raise ValueError("Carga rechazada: el reporte no contiene clientes.")
+
+          required_routes = {"40", "41", "42", "43", "44", "45"}
+          routes_found = set()
+
+          for i, client in enumerate(clients):
+              if not isinstance(client, dict):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} tiene formato inválido."
+                  )
+
+              route = str(client.get("route", "")).strip()
+              name = str(client.get("client", "")).strip()
+              protein = client.get("proteinBuyer")
+              snacks = client.get("snacksBuyer")
+
+              if route in required_routes:
+                  routes_found.add(route)
+
+              if route not in required_routes:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} tiene ruta inválida '{route}'."
+                  )
+
+              if not name:
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene nombre."
+                  )
+
+              if not isinstance(protein, bool):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene proteinBuyer booleano."
+                  )
+
+              if not isinstance(snacks, bool):
+                  raise ValueError(
+                      f"Carga rechazada: cliente #{i+1} no tiene snacksBuyer booleano."
+                  )
+
+          missing_routes = sorted(required_routes - routes_found)
+          if missing_routes:
+              raise ValueError(
+                  "Carga rechazada: faltan rutas obligatorias: " + ", ".join(missing_routes)
+              )
+
+          updated_at = payload.get("updatedAt", payload.get("u"))
+          if not updated_at:
+              raise ValueError("Carga rechazada: falta updatedAt.")
 
           incoming = {
-              "periodo": payload["periodo"],
-              "avanceReporte": validate(payload.get("avanceReporte")),
-              "conteoCampoMinado": validate(payload.get("conteoCampoMinado")),
-              "updatedAt": datetime.now(timezone.utc).isoformat()
+              "incentive": "3 Niñas · Proteína + Snacks",
+              "period": "2026-10",
+              "targets": {"protein": 45, "snacks": 35},
+              "updatedAt": updated_at,
+              "rules": {"buyer": "1 = comprador; 0 o vacío = no comprador"},
+              "clients": clients
           }
-          with open("choco-noviembre.json", "w", encoding="utf-8") as f:
-              json.dump(incoming, f, ensure_ascii=False, indent=2)
-              f.write("\n")
+
+          # El reporte BI vigente es la fuente de verdad.
+          # Solo se reemplaza tres-ninas.json si la validación completa fue exitosa.
+          with open("tres-ninas.json", "w", encoding="utf-8") as f:
+              json.dump(incoming, f, ensure_ascii=False, separators=(",", ":"))
+
+          print(
+              f"Validación OK: {len(clients)} clientes, "
+              f"rutas {', '.join(sorted(routes_found))}, "
+              f"objetivos Proteína 45% / Snacks 35%."
+          )
           PY
 
       - name: Guardar cambios
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add choco-noviembre.json
+          git add tres-ninas.json
 
           if git diff --cached --quiet; then
             echo "No hay cambios para guardar."
