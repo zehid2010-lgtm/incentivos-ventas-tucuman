@@ -12,11 +12,16 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
-<style>body{margin:0;padding:clamp(0px,2vw,18px);background:#182822} #choco-fauna{max-width:1180px;margin:auto} #choco-fauna button:not([hidden]){cursor:pointer}</style><style>#fauna0 .banner-video{position:relative;z-index:1;width:min(34%,280px);flex:none;color:#fff} @media(max-width:620px){#fauna0 .overview{flex-wrap:wrap}#fauna0 .banner-video{width:min(100%,280px)}}</style></head><body>
+<style>body{margin:0;padding:clamp(0px,2vw,18px);background:#182822} #choco-fauna{max-width:1180px;margin:auto} #choco-fauna button:not([hidden]){cursor:pointer}</style><style>#fauna0 .banner-video{position:relative;z-index:1;width:min(34%,280px);flex:none;color:#fff} @media(max-width:620px){#fauna0 .overview{flex-wrap:wrap}#fauna0 .banner-video{width:min(100%,280px)}}</style><style>
+#choco-fauna li b.cliente-comprador,#choco-fauna li b.cliente-pendiente{padding:4px 9px;border-radius:999px}
+#choco-fauna li b.cliente-comprador{color:#166534;background:#dcfce7}
+#choco-fauna li b.cliente-pendiente{color:#991b1b;background:#fee2e2}
+</style>
+</head><body>
 <div id="choco-fauna"><div id="fauna0">
 <header><div><small>PREVENTA TUCUMÁN</small><h2>Incentivos</h2></div><small id="fc0-corte"></small></header>
 <main>
-<div class="overview"><div><span>⚡ · SELVA · TORMENTA</span><h2>Yaguareté de tormenta</h2><p>Choco en ruta · Tucumán · Rutas 40 a 43</p></div><span class="fauna-animal" aria-hidden="true">🐆</span><div class="banner-video" aria-label="Video destacado">
+<div class="overview"><div><p>Choco en ruta · Tucumán · Rutas 40 a 43</p></div><span class="fauna-animal" aria-hidden="true">🐆</span><div class="banner-video" aria-label="Video destacado">
   <video aria-label="Publicidad de Las Tres Niñas" src="./las-tres-ninas.mp4" autoplay muted loop playsinline style="display:block;width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:14px;background:#182822"></video>
 </div></div>
 <section class="metrics" id="fc0-mesa"></section>
@@ -376,7 +381,7 @@
     (detail.corte ? ' · Corte del listado '+detail.corte : '');
   get('clientes').replaceChildren(...rows.slice(0,limit).map(r=>{
    const li=document.createElement('li'),label=document.createElement('span'),code=document.createElement('small'),badge=document.createElement('b');
-   label.textContent=r[4]||r[1];code.textContent=r[1];label.append(code);badge.textContent=r[index]?'Comprador':'Pendiente';li.append(label,badge);return li;
+   label.textContent=r[4]||r[1];code.textContent=r[1];label.append(code);badge.textContent=r[index]?'Comprador':'Pendiente';badge.className=r[index]?'cliente-comprador':'cliente-pendiente';li.append(label,badge);return li;
   }));
   get('mas').hidden=rows.length<=limit;
  }
