@@ -301,7 +301,7 @@
 
 #choco-fauna .indicator{margin-top:9px;display:grid;gap:3px;padding:6px;background:var(--canvas);border-radius:8px}
 #choco-fauna .indicator span{margin:0}
-#choco-fauna .ring{width:76px;height:76px;margin:4px auto;border-radius:50%;background:conic-gradient(var(--accent) var(--sweep),var(--edge) 0);display:grid;place-items:center}
+#choco-fauna .ring{width:76px;height:76px;margin:4px auto;border-radius:50%;background:conic-gradient(var(--ring-color,var(--accent)) var(--sweep),var(--edge) 0);display:grid;place-items:center}
 #choco-fauna .ring strong{width:61px;height:61px;display:grid;place-items:center;background:var(--paper);border-radius:50%;font-size:.85em}
 #fauna1 .route-grid,#fauna2 .route-grid,#fauna3 .route-grid{grid-template-columns:1fr}
 #fauna1 .route-grid button,#fauna2 .route-grid button,#fauna3 .route-grid button{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:8px}
@@ -360,7 +360,7 @@
    const needed=Math.ceil(row.clientesBase*goal/100);
    const steps=Array.from({length:8},(_,i)=>'<i class="'+(i<Math.floor(8*Math.min(row[key]/needed,1))?'filled':'')+'"></i>').join('');
    const indicators=[
-    '<div class="ring" style="--sweep:'+coverage+'%"><strong>'+pct(row[key],row.clientesBase)+'</strong></div><small>'+label+' · Meta '+goal+'%</small>',
+    '<div class="ring" style="--ring-color:'+(row[key]>=needed?'#16803c':'#dc2626')+';--sweep:'+coverage+'%"><strong>'+pct(row[key],row.clientesBase)+'</strong></div><small>'+label+' · Meta '+goal+'%</small>',
     '<strong>'+row[key]+' / '+needed+'</strong><small>Compradores / meta · '+label+'</small>',
     '<div class="steps" aria-hidden="true">'+steps+'</div><strong>'+row[key]+' de '+needed+'</strong><small>'+label+'</small>',
     '<div class="gap-bar" aria-hidden="true"><i style="width:'+100*missing/Math.max(1,...routes.map(r=>gap(r,key,goal)))+'%"></i></div><strong>'+missing+' faltantes</strong><small>'+pct(row[key],row.clientesBase)+' de cobertura · Meta '+goal+'%</small>'
