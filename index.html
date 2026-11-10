@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Incentivos de Venta</title>
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#182822" />
   <meta name="application-name" content="Incentivos de Venta" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=20261003-objetivo" />
+  <link rel="stylesheet" href="styles.css?v=yaguarete" />
 <style>
 .choco-goal{flex:1;min-width:130px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;text-align:center;background:#f4f7fc;border:1px solid #dce5f3;border-radius:16px;padding:14px;color:#183358;box-shadow:0 3px 10px #1833580c}
 .choco-goal img{display:block;width:100px;height:132px;max-width:100%;object-fit:contain;mix-blend-mode:multiply}
@@ -21,10 +21,11 @@
 </style>
 </head>
 <body>
-  <header class="topbar">
+  <header class="topbar yaguarete">
     <div>
       <div class="eyebrow">TUCUMÁN · Rutas 40–43</div>
-      <h1>Incentivos de Venta</h1>
+      <h1>Choco en ruta</h1>
+      <div class="yaguarete-label">YAGUARETÉ DE TORMENTA · LAS TRES NIÑAS</div>
       <p class="subtitle">Seguimiento de cobertura por ruta y clientes pendientes</p>
     </div>
     <div class="status-pill" id="lastUpdate">Cargando datos…</div>
@@ -88,14 +89,14 @@
         </div>
 
         <div class="submetric">
-          <div class="submetric-title"><span>Choco 1 L · Objetivo 15%</span><strong id="proteinPct">0%</strong></div>
-          <div class="progress small"><div id="proteinBar" class="bar"></div></div>
+          <div class="submetric-title"><span>Choco 1 L · Objetivo 15%</span></div>
+          <div id="proteinBar" class="coverage-ring"><strong id="proteinPct">0%</strong></div>
           <div class="subline"><span><b id="proteinBuyers">0</b> compradores</span><span>Faltan: <b id="proteinMissing">0</b></span></div>
         </div>
 
         <div class="submetric">
-          <div class="submetric-title"><span>Choco 200 ml · Objetivo 50%</span><strong id="snacksPct">0%</strong></div>
-          <div class="progress small"><div id="snacksBar" class="bar"></div></div>
+          <div class="submetric-title"><span>Choco 200 ml · Objetivo 50%</span></div>
+          <div id="snacksBar" class="coverage-ring"><strong id="snacksPct">0%</strong></div>
           <div class="subline"><span><b id="snacksBuyers">0</b> compradores</span><span>Faltan: <b id="snacksMissing">0</b></span></div>
         </div>
 
@@ -139,7 +140,7 @@
     </article>
   </template>
 
-  <script src="app.js?v=20261108-nombres"></script>
+  <script src="app.js?v=yaguarete"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

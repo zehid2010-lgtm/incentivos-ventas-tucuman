@@ -29,7 +29,7 @@ async function loadChoco() {
       $(prefix + "Pct").textContent = pct(buyers, route.clientesBase);
       $(prefix + "Buyers").textContent = buyers;
       $(prefix + "Missing").textContent = Math.max(0, Math.ceil(route.clientesBase * target / 100) - buyers);
-      $(prefix + "Bar").style.width = buyers * 100 / route.clientesBase + "%";
+      $(prefix + "Bar").style.setProperty("--coverage", buyers * 100 / route.clientesBase + "%");
     }
   }
 

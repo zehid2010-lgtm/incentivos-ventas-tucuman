@@ -192,3 +192,37 @@ input{width:280px;max-width:100%}
 /* Objetivos destacados */
 .goal{background:#1d4ed8;color:#fff;border:2px solid #1e40af;padding:10px 14px;font-size:14px;font-weight:900;box-shadow:0 3px 10px rgba(29,78,216,.2);text-align:center}
 .submetric-title{color:#1e40af}
+
+/* Yaguareté de tormenta */
+body { background: #eee9db; }
+.topbar.yaguarete {
+  color: #fff8e8;
+  background-color: #182822;
+  background-image: linear-gradient(90deg, #182822 25%, #18282255), radial-gradient(ellipse at center, #aa8048 24%, #57432e 28%, transparent 42%);
+  background-size: auto, 30px 23px;
+  border-bottom: 4px solid #ad8246;
+}
+.yaguarete .eyebrow, .yaguarete .subtitle, .yaguarete .status-pill { color: #fff8e8; }
+.yaguarete .status-pill { background: #33453a; }
+.yaguarete-label { color: #f1ce8b; font-size: .8rem; letter-spacing: .11em; font-weight: 700; }
+#ninasCard .choco-goal { background: #f8efdb; border-color: #dfc99d; }
+#ninasCard .choco-goal b { color: #624c2d; }
+#ninasCard .submetric { background: #faf6ea; }
+.coverage-ring {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  margin: 10px auto;
+  border-radius: 50%;
+  background: conic-gradient(#45604a var(--coverage, 0%), #e2d5b8 0);
+}
+.coverage-ring strong {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fffaf0;
+  color: #283a2d;
+}
