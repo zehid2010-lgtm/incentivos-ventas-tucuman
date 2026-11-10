@@ -17,6 +17,11 @@
 #choco-fauna li b.cliente-comprador{color:#166534;background:#dcfce7}
 #choco-fauna li b.cliente-pendiente{color:#991b1b;background:#fee2e2}
 </style>
+<style>
+#fauna0 [hidden]{display:none!important}
+#fc0-detalle{grid-column:1/-1}
+#fc0-volver{margin-bottom:12px}
+</style>
 </head><body>
 <div id="choco-fauna"><div id="fauna0">
 <header><div><small>PREVENTA TUCUMÁN</small><h2>Incentivos</h2></div><small id="fc0-corte"></small></header>
@@ -25,8 +30,8 @@
   <video aria-label="Publicidad de Las Tres Niñas" src="./las-tres-ninas.mp4" autoplay muted loop playsinline style="display:block;width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:14px;background:#182822"></video>
 </div></div>
 <section class="metrics" id="fc0-mesa"></section>
-<section class="surface"><h3>Anillos de cobertura</h3><p>Seleccioná una ruta para ver sus clientes.</p><div class="route-grid" id="fc0-rutas"></div></section>
-<section class="surface"><h3 id="fc0-titulo">Clientes de la ruta</h3>
+<section class="surface" id="fc0-cobertura"><h3>Anillos de cobertura</h3><p>Seleccioná una ruta para ver sus clientes.</p><div class="route-grid" id="fc0-rutas"></div></section>
+<section class="surface" id="fc0-detalle" hidden><button type="button" class="cursor-interaction" id="fc0-volver">← Volver al avance</button><h3 id="fc0-titulo">Clientes de la ruta</h3>
 <div class="controls">
 <label>Producto <select id="fc0-producto"><option value="0">Choco 200 ml</option><option value="1">Choco 1 L</option></select></label>
 <label>Estado <select id="fc0-estado"><option value="0">Pendientes</option><option value="1">Compradores</option><option value="all">Todos</option></select></label>
@@ -330,6 +335,15 @@
  const view=0;
  const pct=(n,b)=>(100*n/b).toLocaleString('es-AR',{maximumFractionDigits:2})+'%';
  let route='41',limit=5;
+ const overview=root.querySelector('.overview');
+ function showClients(show){
+  for(const section of [overview,get('mesa'),get('cobertura')])section.hidden=show;
+  get('detalle').hidden=!show;
+  const target=show?get('volver'):get('rutas').querySelector('[data-route="'+route+'"]');
+  target?.focus({preventScroll:true});
+  window.scrollTo(0,0);
+ }
+ get('volver').addEventListener('click',()=>showClients(false));
  const updated = new Date(data.updatedAt);
  get('corte').textContent = data.corte ? 'Corte del reporte · '+data.corte :
    (Number.isNaN(updated.valueOf()) ? 'Avance del reporte' : 'Recepción · '+updated.toLocaleDateString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}));
@@ -367,7 +381,7 @@
    ];
    return '<div class="indicator"><span>'+name+'</span>'+indicators[view]+'</div>';
   }).join('');
-  button.addEventListener('click',()=>{route=row.ruta;limit=5;render()});
+  button.addEventListener('click',()=>{route=row.ruta;limit=5;render();showClients(true)});
   get('rutas').append(button);
  }
  function render(){
