@@ -18,12 +18,17 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Validar y actualizar reporte Choco de noviembre
         run: |
           python - <<'PY'
           import json
           import os
+          import subprocess
+          from datetime import datetime, timezone
 
           with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as f:
               event = json.load(f)
@@ -53,23 +58,46 @@ jobs:
               totals = {key: sum(row[key] for row in rows) for key in metrics}
               if any(type(summary.get(key)) is not int or summary[key] != value for key, value in totals.items()):
                   raise ValueError("El total no coincide con la suma de las rutas.")
-              totals["porRuta"] = [{key: row[key] for key in ("ruta", *metrics)} for row in rows]
+              totals["porRuta"] = [{key: row[key] for key in ("ruta", *metrics)} for row in sorted(rows, key=lambda row: row["ruta"])]
               return totals
-
-          from datetime import datetime, timezone
 
           incoming = {
               "periodo": payload["periodo"],
               "avanceReporte": validate(payload.get("avanceReporte")),
               "conteoCampoMinado": validate(payload.get("conteoCampoMinado")),
-              "updatedAt": datetime.now(timezone.utc).isoformat()
           }
-          with open("choco-noviembre.json", "w", encoding="utf-8") as f:
-              json.dump(incoming, f, ensure_ascii=False, indent=2)
-              f.write("\n")
+
+          # Power Automate puede volver a enviar un adjunto ya procesado.
+          path = "choco-noviembre.json"
+          revisions = subprocess.check_output(
+              ["git", "log", "--format=%H", "--", path], text=True
+          ).splitlines()
+          for revision in revisions:
+              blob = subprocess.run(
+                  ["git", "show", f"{revision}:{path}"], capture_output=True, text=True
+              )
+              if blob.returncode:
+                  continue
+              try:
+                  previous = json.loads(blob.stdout)
+                  matches = previous.get("periodo") == incoming["periodo"] and all(
+                      validate(previous.get(key)) == incoming[key]
+                      for key in ("avanceReporte", "conteoCampoMinado")
+                  )
+              except (ValueError, AttributeError, TypeError):
+                  continue
+              if matches:
+                  print("Este reporte ya fue procesado. Se conserva el avance publicado.")
+                  break
+          else:
+              incoming["updatedAt"] = datetime.now(timezone.utc).isoformat()
+              with open(path, "w", encoding="utf-8") as f:
+                  json.dump(incoming, f, ensure_ascii=False, indent=2)
+                  f.write("\n")
           PY
 
       - name: Guardar cambios
+        id: save
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -87,6 +115,7 @@ jobs:
             git rebase origin/main
 
             if git push origin HEAD:main; then
+              echo "published=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
 
@@ -98,7 +127,7 @@ jobs:
           exit 1
 
       - name: Forzar despliegue de GitHub Pages
-        if: success()
+        if: steps.save.outputs.published == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run pages.yml --ref main
