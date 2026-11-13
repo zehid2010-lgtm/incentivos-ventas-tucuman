@@ -1,66 +1,66 @@
 {
   "periodo": "2026-11",
   "avanceReporte": {
-    "clientesBase": 320,
-    "choco1L": 58,
-    "choco200ml": 95,
+    "clientesBase": 328,
+    "choco1L": 78,
+    "choco200ml": 128,
     "porRuta": [
       {
         "ruta": "40",
-        "clientesBase": 77,
-        "choco1L": 29,
-        "choco200ml": 46
+        "clientesBase": 82,
+        "choco1L": 31,
+        "choco200ml": 50
       },
       {
         "ruta": "41",
-        "clientesBase": 88,
-        "choco1L": 7,
-        "choco200ml": 18
+        "clientesBase": 86,
+        "choco1L": 14,
+        "choco200ml": 31
       },
       {
         "ruta": "42",
-        "clientesBase": 76,
-        "choco1L": 10,
-        "choco200ml": 12
+        "clientesBase": 81,
+        "choco1L": 19,
+        "choco200ml": 24
       },
       {
         "ruta": "43",
         "clientesBase": 79,
-        "choco1L": 12,
-        "choco200ml": 19
+        "choco1L": 14,
+        "choco200ml": 23
       }
     ]
   },
   "conteoCampoMinado": {
-    "clientesBase": 320,
-    "choco1L": 57,
-    "choco200ml": 94,
+    "clientesBase": 328,
+    "choco1L": 77,
+    "choco200ml": 127,
     "porRuta": [
       {
         "ruta": "40",
-        "clientesBase": 77,
-        "choco1L": 28,
-        "choco200ml": 45
+        "clientesBase": 82,
+        "choco1L": 30,
+        "choco200ml": 49
       },
       {
         "ruta": "41",
-        "clientesBase": 88,
-        "choco1L": 7,
-        "choco200ml": 18
+        "clientesBase": 86,
+        "choco1L": 14,
+        "choco200ml": 31
       },
       {
         "ruta": "42",
-        "clientesBase": 76,
-        "choco1L": 10,
-        "choco200ml": 12
+        "clientesBase": 81,
+        "choco1L": 19,
+        "choco200ml": 24
       },
       {
         "ruta": "43",
         "clientesBase": 79,
-        "choco1L": 12,
-        "choco200ml": 19
+        "choco1L": 14,
+        "choco200ml": 23
       }
     ]
   },
-  "updatedAt": "2026-11-12T10:02:09.999642+00:00"
+  "updatedAt": "2026-11-13T13:45:01.835018+00:00"
 }
