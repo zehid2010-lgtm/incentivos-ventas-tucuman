@@ -67,33 +67,46 @@ jobs:
               "conteoCampoMinado": validate(payload.get("conteoCampoMinado")),
           }
 
-          # Power Automate puede volver a enviar un adjunto ya procesado.
+          # Registrar cada reporte recibido, aunque sus indicadores no cambien.
+          # Evitar restablecer valores históricos si se reenvía un adjunto viejo.
           path = "choco-noviembre.json"
-          revisions = subprocess.check_output(
-              ["git", "log", "--format=%H", "--", path], text=True
-          ).splitlines()
-          for revision in revisions:
-              blob = subprocess.run(
-                  ["git", "show", f"{revision}:{path}"], capture_output=True, text=True
+          with open(path, "r", encoding="utf-8") as f:
+              current = json.load(f)
+
+          def same_metrics(previous):
+              return previous.get("periodo") == incoming["periodo"] and all(
+                  validate(previous.get(key)) == incoming[key]
+                  for key in ("avanceReporte", "conteoCampoMinado")
               )
-              if blob.returncode:
-                  continue
-              try:
-                  previous = json.loads(blob.stdout)
-                  matches = previous.get("periodo") == incoming["periodo"] and all(
-                      validate(previous.get(key)) == incoming[key]
-                      for key in ("avanceReporte", "conteoCampoMinado")
+
+          current_matches = same_metrics(current)
+          historical_match = False
+          if not current_matches:
+              revisions = subprocess.check_output(
+                  ["git", "log", "--format=%H", "--", path], text=True
+              ).splitlines()[1:]
+              for revision in revisions:
+                  blob = subprocess.run(
+                      ["git", "show", f"{revision}:{path}"], capture_output=True, text=True
                   )
-              except (ValueError, AttributeError, TypeError):
-                  continue
-              if matches:
-                  print("Este reporte ya fue procesado. Se conserva el avance publicado.")
-                  break
+                  if blob.returncode:
+                      continue
+                  try:
+                      if same_metrics(json.loads(blob.stdout)):
+                          historical_match = True
+                          break
+                  except (ValueError, AttributeError, TypeError):
+                      continue
+
+          if historical_match:
+              print("Reporte histórico repetido; no se reemplaza el avance vigente.")
           else:
               incoming["updatedAt"] = datetime.now(timezone.utc).isoformat()
               with open(path, "w", encoding="utf-8") as f:
                   json.dump(incoming, f, ensure_ascii=False, indent=2)
                   f.write("\n")
+              print("Recepción registrada; indicadores iguales." if current_matches
+                    else "Nuevos indicadores registrados.")
           PY
 
       - name: Guardar cambios
