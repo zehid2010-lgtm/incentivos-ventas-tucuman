@@ -148,7 +148,7 @@ jobs:
               if zero != {k: previous_zero.get(k) for k in ("corte", "rutas", "clientes")}:
                   with open(zero_path, "w", encoding="utf-8") as f:
                       json.dump({k: zero[k] for k in ("corte", "rutas", "clientes")}, f, ensure_ascii=False, separators=(",", ":"))
-                      f.write("\\n")
+                      f.write("\n")
                   print("Nueva cobertura Coca Zero publicada: " + zero["corte"])
               else:
                   print("Coca Zero sin cambios.")
