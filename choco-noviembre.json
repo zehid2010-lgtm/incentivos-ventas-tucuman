@@ -1,9 +1,9 @@
 {
   "periodo": "2026-11",
   "avanceReporte": {
-    "clientesBase": 343,
-    "choco1L": 102,
-    "choco200ml": 182,
+    "clientesBase": 342,
+    "choco1L": 104,
+    "choco200ml": 185,
     "porRuta": [
       {
         "ruta": "40",
@@ -13,28 +13,28 @@
       },
       {
         "ruta": "41",
-        "clientesBase": 91,
+        "clientesBase": 90,
         "choco1L": 21,
         "choco200ml": 49
       },
       {
         "ruta": "42",
         "clientesBase": 82,
-        "choco1L": 29,
-        "choco200ml": 39
+        "choco1L": 30,
+        "choco200ml": 41
       },
       {
         "ruta": "43",
         "clientesBase": 82,
-        "choco1L": 19,
-        "choco200ml": 37
+        "choco1L": 20,
+        "choco200ml": 38
       }
     ]
   },
   "conteoCampoMinado": {
-    "clientesBase": 343,
-    "choco1L": 102,
-    "choco200ml": 182,
+    "clientesBase": 342,
+    "choco1L": 104,
+    "choco200ml": 185,
     "porRuta": [
       {
         "ruta": "40",
@@ -44,23 +44,23 @@
       },
       {
         "ruta": "41",
-        "clientesBase": 91,
+        "clientesBase": 90,
         "choco1L": 21,
         "choco200ml": 49
       },
       {
         "ruta": "42",
         "clientesBase": 82,
-        "choco1L": 29,
-        "choco200ml": 39
+        "choco1L": 30,
+        "choco200ml": 41
       },
       {
         "ruta": "43",
         "clientesBase": 82,
-        "choco1L": 19,
-        "choco200ml": 37
+        "choco1L": 20,
+        "choco200ml": 38
       }
     ]
   },
-  "updatedAt": "2026-11-19T12:31:20.098416+00:00"
+  "updatedAt": "2026-11-20T12:31:27.758792+00:00"
 }
