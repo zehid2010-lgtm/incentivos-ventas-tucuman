@@ -107,6 +107,53 @@ jobs:
                   f.write("\n")
               print("Recepción registrada; indicadores iguales." if current_matches
                     else "Nuevos indicadores registrados.")
+
+          # Actualizar Coca Zero si Power Automate entrega la sección cocaZero.
+          # Sin esa sección conservamos el corte previo; jamás inventar compradores.
+          zero = payload.get("cocaZero")
+          if zero is not None:
+              if not isinstance(zero, dict):
+                  raise ValueError("cocaZero debe ser un objeto.")
+              zero_routes = zero.get("rutas")
+              zero_clients = zero.get("clientes")
+              if not isinstance(zero.get("corte"), str) or not zero["corte"].strip():
+                  raise ValueError("Falta la fecha de corte de Coca Zero.")
+              if not isinstance(zero_routes, dict) or set(zero_routes) != routes:
+                  raise ValueError("Coca Zero requiere únicamente rutas 40 a 43.")
+              for route, pair in zero_routes.items():
+                  if (not isinstance(pair, list) or len(pair) != 2 or
+                      any(type(v) is not int for v in pair) or
+                      pair[0] <= 0 or not 0 <= pair[1] <= pair[0]):
+                      raise ValueError("Base/compradores inválidos de Coca Zero: " + route)
+              if not isinstance(zero_clients, list):
+                  raise ValueError("Falta el listado de clientes de Coca Zero.")
+              seen = set()
+              for row in zero_clients:
+                  if (not isinstance(row, list) or len(row) != 4 or
+                      str(row[0]) not in routes or not str(row[1]).strip() or
+                      not isinstance(row[2], str) or type(row[3]) is not int or
+                      row[3] not in (0, 1)):
+                      raise ValueError("Cliente inválido de Coca Zero.")
+                  key = (str(row[0]), str(row[1]))
+                  if key in seen:
+                      raise ValueError("Cliente de Coca Zero duplicado: " + str(key))
+                  seen.add(key)
+              for route, (base, buyers) in zero_routes.items():
+                  subset = [row for row in zero_clients if str(row[0]) == route]
+                  if len(subset) != base or sum(row[3] for row in subset) != buyers:
+                      raise ValueError("Coca Zero: el detalle no coincide con el resumen de ruta " + route)
+              zero_path = "coca-zero.json"
+              with open(zero_path, "r", encoding="utf-8") as f:
+                  previous_zero = json.load(f)
+              if zero != {k: previous_zero.get(k) for k in ("corte", "rutas", "clientes")}:
+                  with open(zero_path, "w", encoding="utf-8") as f:
+                      json.dump({k: zero[k] for k in ("corte", "rutas", "clientes")}, f, ensure_ascii=False, separators=(",", ":"))
+                      f.write("\\n")
+                  print("Nueva cobertura Coca Zero publicada: " + zero["corte"])
+              else:
+                  print("Coca Zero sin cambios.")
+          else:
+              print("El flujo no envió cocaZero: se mantiene la última cobertura real.")
           PY
 
       - name: Guardar cambios
@@ -114,7 +161,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add choco-noviembre.json
+          git add choco-noviembre.json coca-zero.json
 
           if git diff --cached --quiet; then
             echo "No hay cambios para guardar."
