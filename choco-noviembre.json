@@ -3,7 +3,7 @@
   "avanceReporte": {
     "clientesBase": 343,
     "choco1L": 105,
-    "choco200ml": 187,
+    "choco200ml": 189,
     "porRuta": [
       {
         "ruta": "40",
@@ -21,7 +21,7 @@
         "ruta": "42",
         "clientesBase": 82,
         "choco1L": 30,
-        "choco200ml": 41
+        "choco200ml": 43
       },
       {
         "ruta": "43",
@@ -34,7 +34,7 @@
   "conteoCampoMinado": {
     "clientesBase": 343,
     "choco1L": 105,
-    "choco200ml": 187,
+    "choco200ml": 189,
     "porRuta": [
       {
         "ruta": "40",
@@ -52,7 +52,7 @@
         "ruta": "42",
         "clientesBase": 82,
         "choco1L": 30,
-        "choco200ml": 41
+        "choco200ml": 43
       },
       {
         "ruta": "43",
@@ -62,5 +62,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-21T12:31:25.762224+00:00"
+  "updatedAt": "2026-11-22T12:31:15.485195+00:00"
 }
