@@ -67,6 +67,12 @@ jobs:
               "conteoCampoMinado": validate(payload.get("conteoCampoMinado")),
           }
 
+          # El detalle por cliente identifica los productos sin depender de las filas del reporte.
+          # Si se desplazan las filas del resumen, conservar los conteos del Campo Minado.
+          if incoming["avanceReporte"] != incoming["conteoCampoMinado"]:
+              print("Resumen desalineado: se utilizan los conteos por cliente de Campo Minado.")
+              incoming["avanceReporte"] = incoming["conteoCampoMinado"]
+
           # Registrar cada reporte recibido, aunque sus indicadores no cambien.
           # Evitar restablecer valores históricos si se reenvía un adjunto viejo.
           path = "choco-noviembre.json"
