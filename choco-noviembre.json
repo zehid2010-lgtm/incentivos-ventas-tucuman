@@ -2,32 +2,32 @@
   "periodo": "2026-11",
   "avanceReporte": {
     "clientesBase": 346,
-    "choco1L": 199,
-    "choco200ml": 170,
+    "choco1L": 108,
+    "choco200ml": 199,
     "porRuta": [
       {
         "ruta": "40",
         "clientesBase": 88,
-        "choco1L": 58,
-        "choco200ml": 31
+        "choco1L": 34,
+        "choco200ml": 58
       },
       {
         "ruta": "41",
         "clientesBase": 89,
-        "choco1L": 48,
-        "choco200ml": 42
+        "choco1L": 21,
+        "choco200ml": 48
       },
       {
         "ruta": "42",
         "clientesBase": 85,
-        "choco1L": 46,
-        "choco200ml": 49
+        "choco1L": 30,
+        "choco200ml": 46
       },
       {
         "ruta": "43",
         "clientesBase": 84,
-        "choco1L": 47,
-        "choco200ml": 48
+        "choco1L": 23,
+        "choco200ml": 47
       }
     ]
   },
